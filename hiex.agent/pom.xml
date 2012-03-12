@@ -31,30 +31,89 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-eclipse-plugin</artifactId>
                 </plugin>
+	        	<plugin>
+	                <groupId>org.apache.maven.plugins</groupId>
+	                <artifactId>maven-dependency-plugin</artifactId>
+	                <version>2.4</version>
+	                <executions>
+	                
+	                    <execution>
+	                    	
+	                        <id>copy</id>
+	                        <phase>package</phase>
+	                        <goals>
+	                            <goal>copy-dependencies</goal>
+	                        </goals>
+	                        <configuration>
+	                        	<exclude>com.wily.introscope:java-agent,junit:junit</exclude>
+	                            <outputDirectory>
+	                              ${project.build.directory}/lib
+	                            </outputDirectory>
+	                        </configuration>
+	                    </execution>
+	                </executions>
+	            </plugin>                
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
                     <version>2.3.1</version>
-                    <configuration>                       
-                        <archive>                   
+                    
+                    <configuration>
+                    	<verbose>true</verbose>     
+                        <archive>                                	                           	      
                             <manifest>
                                 <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                                 <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                                 <addClasspath>true</addClasspath>
-                            </manifest>
+                                <classpathPrefix>lib/</classpathPrefix>                                
+                            </manifest>                            
                             <manifestEntries>
+                            	<com-wily-Extension-Name>HIEX Agent Tracers</com-wily-Extension-Name>
+                            	<com-wily-Extension-Type>Introscope-Agent</com-wily-Extension-Type>
+                            	<com-wily-Extension-Version>1</com-wily-Extension-Version>
+                            	<com-wily-Extension-Plugins-List>methodtimerctile</com-wily-Extension-Plugins-List>
+                            	<com-wily-Extension-Plugin-methodtimerctile-Type>tracer</com-wily-Extension-Plugin-methodtimerctile-Type>
+                            	<com-wily-Extension-Plugin-methodtimerctile-Version>1</com-wily-Extension-Plugin-methodtimerctile-Version>
+                            	<com-wily-Extension-Plugin-methodtimerctile-Entry-Point-Class>org.helios.hiex.agent.tracer.ctile.MethodTimerCtile</com-wily-Extension-Plugin-methodtimerctile-Entry-Point-Class>
+                            	<com-wily-Extension-Plugin-methodtimerctile-Name>MethodTimer Percentile</com-wily-Extension-Plugin-methodtimerctile-Name>
+                            	<com-wily-Name>HIEX Agent Tracers</com-wily-Name>
+                            	<com-wily-Release>${project.version}</com-wily-Release>                            	
                             </manifestEntries>
                         </archive>
                     </configuration>
                 </plugin>
-                <plugin>
+                            
+                
+               <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
-                <configuration>                  
+                <configuration>
+                        <archive>                                	                           	      
+                            <manifest>
+                                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                                <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                                <addClasspath>false</addClasspath>
+                                <classpathPrefix>lib/</classpathPrefix>                                
+                            </manifest>                            
+                            <manifestEntries>
+                            	<com-wily-Extension-Name>HIEX Agent Tracers</com-wily-Extension-Name>
+                            	<com-wily-Extension-Type>Introscope-Agent</com-wily-Extension-Type>
+                            	<com-wily-Extension-Version>1</com-wily-Extension-Version>
+                            	<com-wily-Extension-Plugins-List>methodtimerctile</com-wily-Extension-Plugins-List>
+                            	<com-wily-Extension-Plugin-methodtimerctile-Type>tracer</com-wily-Extension-Plugin-methodtimerctile-Type>
+                            	<com-wily-Extension-Plugin-methodtimerctile-Version>1</com-wily-Extension-Plugin-methodtimerctile-Version>
+                            	<com-wily-Extension-Plugin-methodtimerctile-Entry-Point-Class>org.helios.hiex.agent.tracer.ctile.MethodTimerCtile</com-wily-Extension-Plugin-methodtimerctile-Entry-Point-Class>
+                            	<com-wily-Extension-Plugin-methodtimerctile-Name>MethodTimer Percentile</com-wily-Extension-Plugin-methodtimerctile-Name>
+                            	<com-wily-Name>HIEX Agent Tracers</com-wily-Name>
+                            	<com-wily-Release>${project.version}</com-wily-Release>                            	
+                            </manifestEntries>
+                        </archive>                
+                	<finalName>hiex-tracing-${project.version}</finalName>               
                   <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                   </descriptorRefs>
+                  
                 </configuration>
-                </plugin>               
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>
