@@ -126,7 +126,7 @@ public class MethodTimerCtile extends ASingleMetricTracerFactory implements
 		accumulatorFactory = getDataAccumulatorFactory();		
 		log = agent.IAgent_getModuleFeedback();
 		if (formatter == null) {
-			log.info("\n\n\tCustom Name Formatter is null");
+			log.info("\n\n\tCustom Name Formatter is null");			
 		} else {
 			log.info("\n\n\tCustom Name Formatter:"
 					+ formatter.getClass().getName());
@@ -322,7 +322,12 @@ public class MethodTimerCtile extends ASingleMetricTracerFactory implements
 	 *      com.wily.introscope.agent.trace.InvocationData)
 	 */
 	public void ITracer_finishTrace(int tracerIndex, InvocationData data) {
-		String metricName = formatter.INameFormatter_format(formattedResource, data);
+		String metricName = null;
+		if(formatter!=null) {
+			metricName = formatter.INameFormatter_format(formattedResource, data);
+		} else {
+			metricName = this.formatParameterizedName(data);
+		}
 		com.wily.introscope.stat.blame.BlameStackSnapshot snapshot = removeFromBlameStackIfEnabledAndReturnSnapshot(data);
 		IIntegerAverageDataAccumulator average = (IIntegerAverageDataAccumulator) getDataAccumulator(metricName + ":Average Elapsed Time (ms)");
 		//this.getAgent().IAgent_getDataAccumulatorFactory().getIntegerAverageDataAccumulator("");
