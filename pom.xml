@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.helios.hiex</groupId>
+  <artifactId>hiex</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>hiex</name>
+  <url>http://maven.apache.org</url>
+  
+  <modules>
+    <module>hiex.agent</module>
+  </modules>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <junit-version>4.8.2</junit-version>
+    <wily-version>8.2.0.0</wily-version>
+    <trove-version>3.0.0</trove-version>
+  </properties>
+	<dependencyManagement>
+	  <dependencies>
+
+	    <!--  Testing  -->
+
+	    <dependency>
+	      <groupId>junit</groupId>
+	      <artifactId>junit</artifactId>
+	      <version>${junit-version}</version>
+	      <scope>test</scope>
+	    </dependency>
+
+	    <!--  Trove Collections  -->
+	    <dependency>
+	      <groupId>trove</groupId>
+	      <artifactId>trove</artifactId>
+	      <version>${trove-version}</version>
+	    </dependency>
+
+	    <!--  Wily Introscope  -->
+
+	    <dependency>
+	      <groupId>com.wily.introscope</groupId>
+	      <artifactId>java-agent</artifactId>
+	      <version>${wily-version}</version>
+	      <scope>provided</scope>      
+	    </dependency>     	
+
+
+	  </dependencies>
+	</dependencyManagement>
+</project>
