@@ -88,6 +88,11 @@ public class MethodTimerCtile extends ASingleMetricTracerFactory implements
 	/** The counter key of the count above percentile */
 	public static final String COUNT_GT_PERCENTILE = "countgt";
 
+	/** The counter key of the percentage at or below percentile */
+	public static final String PERCENT_LTOE_PERCENTILE = "percentltoe";
+	/** The counter key of the percentage above percentile */
+	public static final String PERCENT_GT_PERCENTILE = "percentlgt";
+
 	/** The counter key of the mean */
 	public static final String MEAN_ELAPSED = "mean";
 	/** The counter key of the count */
@@ -185,6 +190,13 @@ public class MethodTimerCtile extends ASingleMetricTracerFactory implements
 		
 		tmp = getTracerParameterValue(COUNT_GT_PERCENTILE, null);
 		if (tmp != null) metricNameMap.put(COUNT_GT_PERCENTILE, percentileResourceName + ":" + tmp);
+		
+		tmp = getTracerParameterValue(PERCENT_LTOE_PERCENTILE, null);
+		if (tmp != null) metricNameMap.put(PERCENT_LTOE_PERCENTILE, percentileResourceName + ":" + tmp);
+		
+		tmp = getTracerParameterValue(PERCENT_GT_PERCENTILE, null);
+		if (tmp != null) metricNameMap.put(PERCENT_GT_PERCENTILE, percentileResourceName + ":" + tmp);
+		
 
 		tmp = getTracerParameterValue(MEAN_ELAPSED, null);
 		if (tmp != null) metricNameMap.put(MEAN_ELAPSED, percentileResourceName + ":" + tmp);
@@ -270,10 +282,15 @@ public class MethodTimerCtile extends ASingleMetricTracerFactory implements
 			if(log.isDebugEnabled()) {
 				log.debug("Creating CtileMetricAccumulator for [" + counterName + "]" );
 			}
-			cma = new CtileMetricAccumulator(percentile, alternator,
-					tracePerformance, debug, accumulatorFactory, counterName,
-					metricNameMap, log);
-			accumulators.put(counterName, cma);
+			try {
+				cma = new CtileMetricAccumulator(percentile, alternator,
+						tracePerformance, debug, accumulatorFactory, counterName,
+						metricNameMap, log);
+				accumulators.put(counterName, cma);
+			} catch (Throwable e) {
+				e.printStackTrace(System.err);
+				throw new RuntimeException("Failed to create CtileMetricAccumulator for [" + counterName + "]", e);
+			}
 		}
 		return cma;
 	}

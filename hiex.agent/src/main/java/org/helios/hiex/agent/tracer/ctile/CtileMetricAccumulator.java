@@ -32,6 +32,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.helios.hiex.util.collections.StatsIntArray;
 import org.helios.hiex.util.collections.SynchronizedTIntArrayList;
+import org.helios.hiex.util.math.SimpleMath;
 
 import com.wily.introscope.agent.stat.DataAccumulatorFactory;
 import com.wily.introscope.agent.stat.IDataAccumulator;
@@ -163,8 +164,10 @@ public class CtileMetricAccumulator {
 	 */
 	private IDataAccumulator createIDataAccumulator(String subName) {
 		if (
+				
 				MethodTimerCtile.PERCENTILE_ELAPSED.equals(subName) || MethodTimerCtile.COUNT_LTOE_PERCENTILE.equals(subName) ||  
 				MethodTimerCtile.COUNT_GT_PERCENTILE.equals(subName) || MethodTimerCtile.MEAN_ELAPSED.equals(subName) ||
+				MethodTimerCtile.PERCENT_GT_PERCENTILE.equals(subName) || MethodTimerCtile.PERCENT_LTOE_PERCENTILE.equals(subName) ||
 				MethodTimerCtile.STDDEV_ELAPSED.equals(subName) || MethodTimerCtile.STDDEV_ELAPSED.equals(subName) ||
 				MethodTimerCtile.COUNT_ELAPSED.equals(subName)) {			
 			return tracerFactory.safeGetIntegerFluctuatingCounterDataAccumulator(metricResource + "|" 	+ metricNameMap.get(subName));
@@ -246,7 +249,17 @@ public class CtileMetricAccumulator {
 						above = total - below;
 						((IIntegerFluctuatingCounterDataAccumulator) getDataAccumulator(MethodTimerCtile.COUNT_GT_PERCENTILE))
 								.IIntegerCounterDataAccumulator_setValue(above);
+
+						int percentAbove = SimpleMath.ipercent(above, total);
+						int percentBelow = SimpleMath.ipercent(below, total);
+						((IIntegerFluctuatingCounterDataAccumulator) getDataAccumulator(MethodTimerCtile.PERCENT_GT_PERCENTILE))
+						.IIntegerCounterDataAccumulator_setValue(percentAbove);
+						((IIntegerFluctuatingCounterDataAccumulator) getDataAccumulator(MethodTimerCtile.PERCENT_LTOE_PERCENTILE))
+						.IIntegerCounterDataAccumulator_setValue(percentBelow);
+						
+						
 					}
+					
 				}
 			}
 			if (!isShutOff(MethodTimerCtile.MEAN_ELAPSED)) {

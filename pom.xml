@@ -17,7 +17,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <junit-version>4.8.2</junit-version>
-    <wily-version>8.2.0.0</wily-version>
+    <wily-version>9.0</wily-version>
     <trove-version>3.0.0</trove-version>
   </properties>
 	<dependencyManagement>
