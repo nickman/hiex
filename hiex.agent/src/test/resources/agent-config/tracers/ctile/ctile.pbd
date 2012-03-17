@@ -1,0 +1,27 @@
+SetTracerClassMapping: MethodTimerCtile90 org.helios.hiex.agent.tracer.ctile.MethodTimerCtile com.wily.introscope.probebuilder.validate.ResourceNameValidator
+
+SetTracerParameter:    MethodTimerCtile90 percentile "90"  				  # The percentile value to trace.
+SetTracerParameter:    MethodTimerCtile90 period "15000"                                  # The interval period in ms.
+SetTracerParameter:    MethodTimerCtile90 performance "true"                              # true turns on some percentile calc. monitoring
+SetTracerParameter:    MethodTimerCtile90 percentileelapsed "Percentile Threshold"       # The label for the percentile elapsed threshold metric.
+SetTracerParameter:    MethodTimerCtile90 countltoe "Count Under Percentile"  # The label for the count of less than or equal to percentile metric.
+SetTracerParameter:    MethodTimerCtile90 countgt "Count Over Percentile"     # The label for the count of over percentile metric.
+SetTracerParameter:    MethodTimerCtile90 mean "Mean"       		      # The label for the mean elapsed time.
+SetTracerParameter:    MethodTimerCtile90 count "Count"  		      # The label for the count of invocations
+SetTracerParameter:    MethodTimerCtile90 stddev "Standard Deviation"         # The label for the standard deviation of elapsed times.
+SetTracerParameter:    MethodTimerCtile90 debug "true"         		      # Outputs the raw data and calculated values to a string metric every period.
+
+SetTracerParameter: MethodTimerCtile90 percentltoe "% Under Percentile"
+SetTracerParameter: MethodTimerCtile90 percentgt "% Over Percentile"
+
+##
+# NOTE: To Disable a metric, comment the according label.
+##
+
+TraceOneMethodOfClass: org.helios.hiex.agent.tracer.ctile.PercentileTestCase measureMe MethodTimerCtile90 "HIEX|Tracers|ctile|{method}"
+
+
+
+
+
+

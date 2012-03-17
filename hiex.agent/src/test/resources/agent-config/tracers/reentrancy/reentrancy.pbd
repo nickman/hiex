@@ -1,0 +1,22 @@
+SetTracerClassMapping: ReentrancyTracer org.helios.hiex.agent.tracer.reentrancy.ReentrancyTestTracer com.wily.introscope.probebuilder.validate.ResourceNameValidator
+SetTracerClassMapping: ContentionTracer org.helios.hiex.agent.tracer.base.ThreadContentionTracer com.wily.introscope.probebuilder.validate.ResourceNameValidator
+
+#SetTracerParameter:    ReentrancyTracer reentrancy "instance"
+SetTracerParameter:    ReentrancyTracer reentrancy "methodname"
+
+SetTracerParameter: ContentionTracer enableTimes "true"
+
+
+#TraceAllMethodsOfClass: org.helios.hiex.agent.tracer.reentrancy.ReentrancyTestCase ReentrancyTracer "HIEX|Tracers|reentrancy|{classname}|{method}"
+
+TraceAllMethodsOfClass: org.helios.hiex.agent.tracer.reentrancy.ReentrancyTestCase ContentionTracer "HIEX|Tracers|contention|{classname}|{method}"
+
+
+#TraceAllMethodsIfInherits: org.helios.hiex.agent.tracer.reentrancy.ReentrancyTestCase ReentrancyTracer "HIEX|Tracers|reentrancy|{classname}|{method}"
+#TraceAllMethodsOfClass: org.helios.hiex.agent.tracer.reentrancy.ReentrancyTestCase ReentrancyTracer "HIEX|Tracers|reentrancy|{classname}|{method}"
+#TraceAllMethodsOfClass: org.helios.hiex.agent.tracer.reentrancy.RET2 ReentrancyTracer "HIEX|Tracers|reentrancy|{classname}|{method}"
+
+
+
+
+

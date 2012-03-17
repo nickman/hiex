@@ -1,0 +1,890 @@
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Release 9.0.0.0 (Build 890698)
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Using Java VM version "Java HotSpot(TM) 64-Bit Server VM 1.6.0_30" from Sun Microsystems Inc.
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Trying to load agent profile based on system property "com.wily.introscope.agentProfile"
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Trying to load file from ./src/test/resources/agent-config/tracers/ctile/ctile2.profile
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Loaded file from ./src/test/resources/agent-config/tracers/ctile/ctile2.profile
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Thread priority (introscope.agent.thread.all.priority) set to default value of "5"
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Transaction Trace Limit (introscope.agent.ttClamp) set to "50"
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Limit (introscope.agent.metricClamp) set to default value of "-1"
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.maxrate) set to default value of "10"
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.initial.period) set to default value of "100"
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.reset.period) set to default value of "10000"
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Trace Component Count Limit (introscope.agent.transactiontrace.componentCountClamp) set to default value of "5000"
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Trace Head Filter Limit (introscope.agent.transactiontrace.headFilterClamp) set to default value of "30"
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.tailfilterPropagate.enable) set to default value of "false"
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging (introscope.agent.metricAging.turnOn) set to "true"
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Interval (introscope.agent.metricAging.heartbeatInterval) set to "1800" seconds
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Data Chunk (introscope.agent.metricAging.dataChunk) set to "500"
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Exclusion List (introscope.agent.metricAging.metricExclude.ignore) set to "[Threads*]"
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Agent Timeslice Intervals (introscope.agent.metricAging.numberTimeslices) set to "3000"
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Looking for agent profile property "introscope.agent.extensions.directory" to locate the extensions directory.
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] The agent extensions directory /home/nwhitehead/hprojects/hiex/hiex.agent/src/test/resources/agent-config/tracers/ctile/ext was successfully located
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent] Fully Qualified Agent Host Name (introscope.agent.display.hostName.as.fqdn) set to "false"
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent] Configuration property (introscope.agent.hostName) set to default value of null
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Business Recording Enabled (introscope.agent.bizRecording.enabled) set to "true"
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Introscope Agent startup complete.			
+3/13/12 08:06:59 AM EDT [WARN] [IntroscopeAgent.Agent] No bytecode transformers are configured.  Please make sure ProbeBuilder is deployed as an Agent extension.
+3/13/12 08:06:59 AM EDT [WARN] [IntroscopeAgent.Agent] Dynamic Instrumentation is not available for the agent. Please make sure that the Dynamic Instrumentation module is deployed as agent extension.
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Client Hosts (introscope.agent.io.socket.client.hosts) set to ""
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Client Ports (introscope.agent.io.socket.client.ports) set to ""
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Server Ports (introscope.agent.io.socket.server.ports) set to ""
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Client Hosts (introscope.agent.nio.datagram.client.hosts) set to ""
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Client Hosts (introscope.agent.nio.socket.client.hosts) set to ""
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Client Ports (introscope.agent.nio.datagram.client.ports) set to ""
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Server Ports (introscope.agent.nio.datagram.server.ports) set to ""
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Client Ports (introscope.agent.nio.socket.client.ports) set to ""
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Server Ports (introscope.agent.nio.socket.server.ports) set to ""
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.charEncoding) set to default value of null
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.headers) set to default value of ""
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.parameters) set to default value of ""
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.attributes) set to default value of ""
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httpsession.attributes) set to default value of ""
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.userid.key) set to default value of null
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.userid.method) set to default value of null
+3/13/12 08:06:59 AM EDT [WARN] [IntroscopeAgent.Agent] Agent_Transaction_Trace_UserID_Not_Configured
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] The Agent will attempt to determine its name.
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Unable to determine the Agent name from the System Property "com.wily.introscope.agent.agentName" because that property was either not found or had no value.
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Unable to determine the Agent name from a user specified System Property because the property "introscope.agent.agentNameSystemPropertyKey" in the Introscope Agent Profile was either not found or had no value.
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] The Agent will not attempt to automatically determine its name from the Application Server because that feature has been disabled in the Introscope Agent Profile.
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Using the Agent name "CTileAgent" based on the "introscope.agent.agentName" property in the Introscope Agent Profile.
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Configured error reporting throttle at 10
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Initial agent name set to CTileAgent
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Error snapshot collection has been enabled
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Started Error Reporting service
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Isengard] Initiating connection attempts to the Introscope Enterprise Manager.
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Stall event service: stall threshold of 30 seconds
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Stall event service: resolution of 10 seconds
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Started Stall Service
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Isengard] The Agent reconnection delay is set to 15 second(s).
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.appmap.queue.size) set to default value of "1000"
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.appmap.queue.period) set to default value of "1000"
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Started transaction sampling service
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Tracer sampling interval has been set to 120 seconds.
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Tracer samples per interval has been set to 1.
+3/13/12 08:06:59 AM EDT [INFO] [IntroscopeAgent.IsengardServerConnectionManager] Connected Agent to the Introscope Enterprise Manager at localhost:5001,com.wily.isengard.postofficehub.link.net.DefaultSocketFactory. Host = "hserval", Process = "HIEXProcess", Agent Name = "CTileAgent".
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Release 9.0.0.0 (Build 890698)
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Using Java VM version "Java HotSpot(TM) 64-Bit Server VM 1.6.0_30" from Sun Microsystems Inc.
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Trying to load agent profile based on system property "com.wily.introscope.agentProfile"
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Trying to load file from ./src/test/resources/agent-config/tracers/ctile/ctile2.profile
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Loaded file from ./src/test/resources/agent-config/tracers/ctile/ctile2.profile
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Thread priority (introscope.agent.thread.all.priority) set to default value of "5"
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Transaction Trace Limit (introscope.agent.ttClamp) set to "50"
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Limit (introscope.agent.metricClamp) set to default value of "-1"
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.maxrate) set to default value of "10"
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.initial.period) set to default value of "100"
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.reset.period) set to default value of "10000"
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Trace Component Count Limit (introscope.agent.transactiontrace.componentCountClamp) set to default value of "5000"
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Trace Head Filter Limit (introscope.agent.transactiontrace.headFilterClamp) set to default value of "30"
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.tailfilterPropagate.enable) set to default value of "false"
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging (introscope.agent.metricAging.turnOn) set to "true"
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Interval (introscope.agent.metricAging.heartbeatInterval) set to "1800" seconds
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Data Chunk (introscope.agent.metricAging.dataChunk) set to "500"
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Exclusion List (introscope.agent.metricAging.metricExclude.ignore) set to "[Threads*]"
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Agent Timeslice Intervals (introscope.agent.metricAging.numberTimeslices) set to "3000"
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Looking for agent profile property "introscope.agent.extensions.directory" to locate the extensions directory.
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] The agent extensions directory /home/nwhitehead/hprojects/hiex/hiex.agent/src/test/resources/agent-config/tracers/ctile/ext was successfully located
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent] Fully Qualified Agent Host Name (introscope.agent.display.hostName.as.fqdn) set to "false"
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent] Configuration property (introscope.agent.hostName) set to default value of null
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Business Recording Enabled (introscope.agent.bizRecording.enabled) set to "true"
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Introscope Agent startup complete.			
+3/13/12 08:07:59 AM EDT [WARN] [IntroscopeAgent.Agent] No bytecode transformers are configured.  Please make sure ProbeBuilder is deployed as an Agent extension.
+3/13/12 08:07:59 AM EDT [WARN] [IntroscopeAgent.Agent] Dynamic Instrumentation is not available for the agent. Please make sure that the Dynamic Instrumentation module is deployed as agent extension.
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Client Hosts (introscope.agent.io.socket.client.hosts) set to ""
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Client Ports (introscope.agent.io.socket.client.ports) set to ""
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Server Ports (introscope.agent.io.socket.server.ports) set to ""
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Client Hosts (introscope.agent.nio.datagram.client.hosts) set to ""
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Client Hosts (introscope.agent.nio.socket.client.hosts) set to ""
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Client Ports (introscope.agent.nio.datagram.client.ports) set to ""
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Server Ports (introscope.agent.nio.datagram.server.ports) set to ""
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Client Ports (introscope.agent.nio.socket.client.ports) set to ""
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Server Ports (introscope.agent.nio.socket.server.ports) set to ""
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.charEncoding) set to default value of null
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.headers) set to default value of ""
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.parameters) set to default value of ""
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.attributes) set to default value of ""
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httpsession.attributes) set to default value of ""
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.userid.key) set to default value of null
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.userid.method) set to default value of null
+3/13/12 08:07:59 AM EDT [WARN] [IntroscopeAgent.Agent] Agent_Transaction_Trace_UserID_Not_Configured
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] The Agent will attempt to determine its name.
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Unable to determine the Agent name from the System Property "com.wily.introscope.agent.agentName" because that property was either not found or had no value.
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Unable to determine the Agent name from a user specified System Property because the property "introscope.agent.agentNameSystemPropertyKey" in the Introscope Agent Profile was either not found or had no value.
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] The Agent will not attempt to automatically determine its name from the Application Server because that feature has been disabled in the Introscope Agent Profile.
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Using the Agent name "CTileAgent" based on the "introscope.agent.agentName" property in the Introscope Agent Profile.
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Initial agent name set to CTileAgent
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Configured error reporting throttle at 10
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Isengard] Initiating connection attempts to the Introscope Enterprise Manager.
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Error snapshot collection has been enabled
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Started Error Reporting service
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Stall event service: stall threshold of 30 seconds
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Stall event service: resolution of 10 seconds
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Started Stall Service
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Isengard] The Agent reconnection delay is set to 15 second(s).
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.appmap.queue.size) set to default value of "1000"
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.appmap.queue.period) set to default value of "1000"
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Started transaction sampling service
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Tracer sampling interval has been set to 120 seconds.
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Tracer samples per interval has been set to 1.
+3/13/12 08:07:59 AM EDT [INFO] [IntroscopeAgent.IsengardServerConnectionManager] Connected Agent to the Introscope Enterprise Manager at localhost:5001,com.wily.isengard.postofficehub.link.net.DefaultSocketFactory. Host = "hserval", Process = "HIEXProcess", Agent Name = "CTileAgent".
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Release 9.0.0.0 (Build 890698)
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Using Java VM version "Java HotSpot(TM) 64-Bit Server VM 1.6.0_30" from Sun Microsystems Inc.
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Trying to load agent profile based on system property "com.wily.introscope.agentProfile"
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Trying to load file from ./src/test/resources/agent-config/tracers/ctile/ctile2.profile
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Loaded file from ./src/test/resources/agent-config/tracers/ctile/ctile2.profile
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Thread priority (introscope.agent.thread.all.priority) set to default value of "5"
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Transaction Trace Limit (introscope.agent.ttClamp) set to "50"
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Limit (introscope.agent.metricClamp) set to default value of "-1"
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.maxrate) set to default value of "10"
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.initial.period) set to default value of "100"
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.reset.period) set to default value of "10000"
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Trace Component Count Limit (introscope.agent.transactiontrace.componentCountClamp) set to default value of "5000"
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Trace Head Filter Limit (introscope.agent.transactiontrace.headFilterClamp) set to default value of "30"
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.tailfilterPropagate.enable) set to default value of "false"
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging (introscope.agent.metricAging.turnOn) set to "true"
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Interval (introscope.agent.metricAging.heartbeatInterval) set to "1800" seconds
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Data Chunk (introscope.agent.metricAging.dataChunk) set to "500"
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Exclusion List (introscope.agent.metricAging.metricExclude.ignore) set to "[Threads*]"
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Agent Timeslice Intervals (introscope.agent.metricAging.numberTimeslices) set to "3000"
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Looking for agent profile property "introscope.agent.extensions.directory" to locate the extensions directory.
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] The agent extensions directory /home/nwhitehead/hprojects/hiex/hiex.agent/src/test/resources/agent-config/tracers/ctile/ext was successfully located
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Introscope AutoProbe Release 9.0.0.0 (Build 890698)
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.autoprobe.logging) set to default value of ""
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] The Introscope AutoProbe log has been created at /home/nwhitehead/hprojects/hiex/hiex.agent/src/test/resources/agent-config/tracers/ctile/logs/AutoProbe.log
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] No directive loader extensions found, using the default directive loader
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] AutoProbe has reloaded all directive configuration.  This is because a change to a directive configuration file was detected.
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.autoprobe.logskippedclasses.enabled) set to default value of "false"
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent] Fully Qualified Agent Host Name (introscope.agent.display.hostName.as.fqdn) set to "false"
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent] Configuration property (introscope.agent.hostName) set to default value of null
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Business Recording Enabled (introscope.agent.bizRecording.enabled) set to "true"
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Introscope Agent startup complete.			
+3/13/12 08:10:23 AM EDT [WARN] [IntroscopeAgent.ProbeTransformer] Unable to execute Bootstrap Transformation. A suitable plugin has not been loaded
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Client Hosts (introscope.agent.io.socket.client.hosts) set to ""
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Client Ports (introscope.agent.io.socket.client.ports) set to ""
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Server Ports (introscope.agent.io.socket.server.ports) set to ""
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Client Hosts (introscope.agent.nio.datagram.client.hosts) set to ""
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Client Hosts (introscope.agent.nio.socket.client.hosts) set to ""
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Client Ports (introscope.agent.nio.datagram.client.ports) set to ""
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Server Ports (introscope.agent.nio.datagram.server.ports) set to ""
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Client Ports (introscope.agent.nio.socket.client.ports) set to ""
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Server Ports (introscope.agent.nio.socket.server.ports) set to ""
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.charEncoding) set to default value of null
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.headers) set to default value of ""
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.parameters) set to default value of ""
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.attributes) set to default value of ""
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httpsession.attributes) set to default value of ""
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.userid.key) set to default value of null
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.userid.method) set to default value of null
+3/13/12 08:10:23 AM EDT [WARN] [IntroscopeAgent.Agent] Agent_Transaction_Trace_UserID_Not_Configured
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] The Agent will attempt to determine its name.
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Unable to determine the Agent name from the System Property "com.wily.introscope.agent.agentName" because that property was either not found or had no value.
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Unable to determine the Agent name from a user specified System Property because the property "introscope.agent.agentNameSystemPropertyKey" in the Introscope Agent Profile was either not found or had no value.
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] The Agent will not attempt to automatically determine its name from the Application Server because that feature has been disabled in the Introscope Agent Profile.
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Using the Agent name "CTileAgent" based on the "introscope.agent.agentName" property in the Introscope Agent Profile.
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Initial agent name set to CTileAgent
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Isengard] Initiating connection attempts to the Introscope Enterprise Manager.
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Isengard] The Agent reconnection delay is set to 15 second(s).
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.appmap.queue.size) set to default value of "1000"
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.appmap.queue.period) set to default value of "1000"
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Configured error reporting throttle at 10
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Error snapshot collection has been enabled
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Started Error Reporting service
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Stall event service: stall threshold of 30 seconds
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Stall event service: resolution of 10 seconds
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Started Stall Service
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Started transaction sampling service
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Tracer sampling interval has been set to 120 seconds.
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Tracer samples per interval has been set to 1.
+3/13/12 08:10:23 AM EDT [INFO] [IntroscopeAgent.IsengardServerConnectionManager] Connected Agent to the Introscope Enterprise Manager at localhost:5001,com.wily.isengard.postofficehub.link.net.DefaultSocketFactory. Host = "hserval", Process = "HIEXProcess", Agent Name = "CTileAgent".
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Release 9.0.0.0 (Build 890698)
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Using Java VM version "Java HotSpot(TM) 64-Bit Server VM 1.6.0_30" from Sun Microsystems Inc.
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Trying to load agent profile based on system property "com.wily.introscope.agentProfile"
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Trying to load file from ./src/test/resources/agent-config/tracers/ctile/ctile2.profile
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Loaded file from ./src/test/resources/agent-config/tracers/ctile/ctile2.profile
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Thread priority (introscope.agent.thread.all.priority) set to default value of "5"
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Transaction Trace Limit (introscope.agent.ttClamp) set to "50"
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Limit (introscope.agent.metricClamp) set to default value of "-1"
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.maxrate) set to default value of "10"
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.initial.period) set to default value of "100"
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.reset.period) set to default value of "10000"
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Trace Component Count Limit (introscope.agent.transactiontrace.componentCountClamp) set to default value of "5000"
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Trace Head Filter Limit (introscope.agent.transactiontrace.headFilterClamp) set to default value of "30"
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.tailfilterPropagate.enable) set to default value of "false"
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging (introscope.agent.metricAging.turnOn) set to "true"
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Interval (introscope.agent.metricAging.heartbeatInterval) set to "1800" seconds
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Data Chunk (introscope.agent.metricAging.dataChunk) set to "500"
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Exclusion List (introscope.agent.metricAging.metricExclude.ignore) set to "[Threads*]"
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Agent Timeslice Intervals (introscope.agent.metricAging.numberTimeslices) set to "3000"
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Looking for agent profile property "introscope.agent.extensions.directory" to locate the extensions directory.
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] The agent extensions directory /home/nwhitehead/hprojects/hiex/hiex.agent/src/test/resources/agent-config/tracers/ctile/ext was successfully located
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Introscope AutoProbe Release 9.0.0.0 (Build 890698)
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.autoprobe.logging) set to default value of ""
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] The Introscope AutoProbe log has been created at /home/nwhitehead/hprojects/hiex/hiex.agent/src/test/resources/agent-config/tracers/ctile/logs/AutoProbe.log
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] No directive loader extensions found, using the default directive loader
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] AutoProbe has reloaded all directive configuration.  This is because a change to a directive configuration file was detected.
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.autoprobe.logskippedclasses.enabled) set to default value of "false"
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent] Fully Qualified Agent Host Name (introscope.agent.display.hostName.as.fqdn) set to "false"
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent] Configuration property (introscope.agent.hostName) set to default value of null
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Business Recording Enabled (introscope.agent.bizRecording.enabled) set to "true"
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Introscope Agent startup complete.			
+3/13/12 08:12:08 AM EDT [WARN] [IntroscopeAgent.ProbeTransformer] Unable to execute Bootstrap Transformation. A suitable plugin has not been loaded
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Client Hosts (introscope.agent.io.socket.client.hosts) set to ""
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Client Ports (introscope.agent.io.socket.client.ports) set to ""
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Server Ports (introscope.agent.io.socket.server.ports) set to ""
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Client Hosts (introscope.agent.nio.datagram.client.hosts) set to ""
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Client Hosts (introscope.agent.nio.socket.client.hosts) set to ""
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Client Ports (introscope.agent.nio.datagram.client.ports) set to ""
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Server Ports (introscope.agent.nio.datagram.server.ports) set to ""
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Client Ports (introscope.agent.nio.socket.client.ports) set to ""
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Server Ports (introscope.agent.nio.socket.server.ports) set to ""
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.charEncoding) set to default value of null
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.headers) set to default value of ""
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.parameters) set to default value of ""
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.attributes) set to default value of ""
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httpsession.attributes) set to default value of ""
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.userid.key) set to default value of null
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.userid.method) set to default value of null
+3/13/12 08:12:08 AM EDT [WARN] [IntroscopeAgent.Agent] Agent_Transaction_Trace_UserID_Not_Configured
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] The Agent will attempt to determine its name.
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Unable to determine the Agent name from the System Property "com.wily.introscope.agent.agentName" because that property was either not found or had no value.
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Unable to determine the Agent name from a user specified System Property because the property "introscope.agent.agentNameSystemPropertyKey" in the Introscope Agent Profile was either not found or had no value.
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] The Agent will not attempt to automatically determine its name from the Application Server because that feature has been disabled in the Introscope Agent Profile.
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Using the Agent name "CTileAgent" based on the "introscope.agent.agentName" property in the Introscope Agent Profile.
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Initial agent name set to CTileAgent
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Isengard] Initiating connection attempts to the Introscope Enterprise Manager.
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Isengard] The Agent reconnection delay is set to 15 second(s).
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.appmap.queue.size) set to default value of "1000"
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.appmap.queue.period) set to default value of "1000"
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Configured error reporting throttle at 10
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Error snapshot collection has been enabled
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Started Error Reporting service
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Stall event service: stall threshold of 30 seconds
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Stall event service: resolution of 10 seconds
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Started Stall Service
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Started transaction sampling service
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Tracer sampling interval has been set to 120 seconds.
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Tracer samples per interval has been set to 1.
+3/13/12 08:12:08 AM EDT [INFO] [IntroscopeAgent.IsengardServerConnectionManager] Connected Agent to the Introscope Enterprise Manager at localhost:5001,com.wily.isengard.postofficehub.link.net.DefaultSocketFactory. Host = "hserval", Process = "HIEXProcess", Agent Name = "CTileAgent".
+3/13/12 08:12:08 AM EDT [ERROR] [IntroscopeAgent.Agent] Attempted to create a metric with the invalid metric name "HIEX|Tracers|ctile|measureMe".
+3/13/12 08:12:26 AM EDT [INFO] [IntroscopeAgent.Agent] 
+
+	Custom Name Formatter is null
+3/13/12 08:12:27 AM EDT [ERROR] [IntroscopeAgent.Agent] Exception finishing method tracer for org.helios.hiex.agent.tracer.ctile.PercentileTestCase.measureMe
+3/13/12 08:12:28 AM EDT [ERROR] [IntroscopeAgent.Agent] Exception finishing method tracer for org.helios.hiex.agent.tracer.ctile.PercentileTestCase.measureMe
+3/13/12 08:12:29 AM EDT [ERROR] [IntroscopeAgent.Agent] Exception finishing method tracer for org.helios.hiex.agent.tracer.ctile.PercentileTestCase.measureMe
+3/13/12 08:12:31 AM EDT [ERROR] [IntroscopeAgent.Agent] Exception finishing method tracer for org.helios.hiex.agent.tracer.ctile.PercentileTestCase.measureMe
+3/13/12 08:12:34 AM EDT [ERROR] [IntroscopeAgent.Agent] Exception finishing method tracer for org.helios.hiex.agent.tracer.ctile.PercentileTestCase.measureMe
+3/13/12 08:12:37 AM EDT [ERROR] [IntroscopeAgent.Agent] Exception finishing method tracer for org.helios.hiex.agent.tracer.ctile.PercentileTestCase.measureMe
+3/13/12 08:12:40 AM EDT [ERROR] [IntroscopeAgent.Agent] Exception finishing method tracer for org.helios.hiex.agent.tracer.ctile.PercentileTestCase.measureMe
+3/13/12 08:12:45 AM EDT [ERROR] [IntroscopeAgent.Agent] Exception finishing method tracer for org.helios.hiex.agent.tracer.ctile.PercentileTestCase.measureMe
+3/13/12 08:12:49 AM EDT [ERROR] [IntroscopeAgent.Agent] Exception finishing method tracer for org.helios.hiex.agent.tracer.ctile.PercentileTestCase.measureMe
+3/13/12 08:12:54 AM EDT [ERROR] [IntroscopeAgent.Agent] Exception finishing method tracer for org.helios.hiex.agent.tracer.ctile.PercentileTestCase.measureMe
+3/13/12 08:12:55 AM EDT [ERROR] [IntroscopeAgent.Agent] Exception finishing method tracer for org.helios.hiex.agent.tracer.ctile.PercentileTestCase.measureMe
+3/13/12 08:12:56 AM EDT [ERROR] [IntroscopeAgent.Agent] Exception finishing method tracer for org.helios.hiex.agent.tracer.ctile.PercentileTestCase.measureMe
+3/13/12 08:12:57 AM EDT [ERROR] [IntroscopeAgent.Agent] Exception finishing method tracer for org.helios.hiex.agent.tracer.ctile.PercentileTestCase.measureMe
+3/13/12 08:12:59 AM EDT [ERROR] [IntroscopeAgent.Agent] Exception finishing method tracer for org.helios.hiex.agent.tracer.ctile.PercentileTestCase.measureMe
+3/13/12 08:13:02 AM EDT [ERROR] [IntroscopeAgent.Agent] Exception finishing method tracer for org.helios.hiex.agent.tracer.ctile.PercentileTestCase.measureMe
+3/13/12 08:13:05 AM EDT [ERROR] [IntroscopeAgent.Agent] Exception finishing method tracer for org.helios.hiex.agent.tracer.ctile.PercentileTestCase.measureMe
+3/13/12 08:13:08 AM EDT [ERROR] [IntroscopeAgent.Agent] Exception finishing method tracer for org.helios.hiex.agent.tracer.ctile.PercentileTestCase.measureMe
+3/13/12 08:13:12 AM EDT [ERROR] [IntroscopeAgent.Agent] Exception finishing method tracer for org.helios.hiex.agent.tracer.ctile.PercentileTestCase.measureMe
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Release 9.0.0.0 (Build 890698)
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Using Java VM version "Java HotSpot(TM) 64-Bit Server VM 1.6.0_30" from Sun Microsystems Inc.
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Trying to load agent profile based on system property "com.wily.introscope.agentProfile"
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Trying to load file from ./src/test/resources/agent-config/tracers/ctile/ctile2.profile
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Loaded file from ./src/test/resources/agent-config/tracers/ctile/ctile2.profile
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Thread priority (introscope.agent.thread.all.priority) set to default value of "5"
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Transaction Trace Limit (introscope.agent.ttClamp) set to "50"
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Limit (introscope.agent.metricClamp) set to default value of "-1"
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.maxrate) set to default value of "10"
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.initial.period) set to default value of "100"
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.reset.period) set to default value of "10000"
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Trace Component Count Limit (introscope.agent.transactiontrace.componentCountClamp) set to default value of "5000"
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Trace Head Filter Limit (introscope.agent.transactiontrace.headFilterClamp) set to default value of "30"
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.tailfilterPropagate.enable) set to default value of "false"
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging (introscope.agent.metricAging.turnOn) set to "true"
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Interval (introscope.agent.metricAging.heartbeatInterval) set to "1800" seconds
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Data Chunk (introscope.agent.metricAging.dataChunk) set to "500"
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Exclusion List (introscope.agent.metricAging.metricExclude.ignore) set to "[Threads*]"
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Agent Timeslice Intervals (introscope.agent.metricAging.numberTimeslices) set to "3000"
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Looking for agent profile property "introscope.agent.extensions.directory" to locate the extensions directory.
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] The agent extensions directory /home/nwhitehead/hprojects/hiex/hiex.agent/src/test/resources/agent-config/tracers/ctile/ext was successfully located
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Introscope AutoProbe Release 9.0.0.0 (Build 890698)
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.autoprobe.logging) set to default value of ""
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] The Introscope AutoProbe log has been created at /home/nwhitehead/hprojects/hiex/hiex.agent/src/test/resources/agent-config/tracers/ctile/logs/AutoProbe.log
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] No directive loader extensions found, using the default directive loader
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] AutoProbe has reloaded all directive configuration.  This is because a change to a directive configuration file was detected.
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.autoprobe.logskippedclasses.enabled) set to default value of "false"
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent] Fully Qualified Agent Host Name (introscope.agent.display.hostName.as.fqdn) set to "false"
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent] Configuration property (introscope.agent.hostName) set to default value of null
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Business Recording Enabled (introscope.agent.bizRecording.enabled) set to "true"
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Introscope Agent startup complete.			
+3/13/12 08:14:09 AM EDT [WARN] [IntroscopeAgent.ProbeTransformer] Unable to execute Bootstrap Transformation. A suitable plugin has not been loaded
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Client Hosts (introscope.agent.io.socket.client.hosts) set to ""
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Client Ports (introscope.agent.io.socket.client.ports) set to ""
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Server Ports (introscope.agent.io.socket.server.ports) set to ""
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Client Hosts (introscope.agent.nio.datagram.client.hosts) set to ""
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Client Hosts (introscope.agent.nio.socket.client.hosts) set to ""
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Client Ports (introscope.agent.nio.datagram.client.ports) set to ""
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Server Ports (introscope.agent.nio.datagram.server.ports) set to ""
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Client Ports (introscope.agent.nio.socket.client.ports) set to ""
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Server Ports (introscope.agent.nio.socket.server.ports) set to ""
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.charEncoding) set to default value of null
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.headers) set to default value of ""
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.parameters) set to default value of ""
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.attributes) set to default value of ""
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httpsession.attributes) set to default value of ""
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.userid.key) set to default value of null
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.userid.method) set to default value of null
+3/13/12 08:14:09 AM EDT [WARN] [IntroscopeAgent.Agent] Agent_Transaction_Trace_UserID_Not_Configured
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] The Agent will attempt to determine its name.
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Unable to determine the Agent name from the System Property "com.wily.introscope.agent.agentName" because that property was either not found or had no value.
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Unable to determine the Agent name from a user specified System Property because the property "introscope.agent.agentNameSystemPropertyKey" in the Introscope Agent Profile was either not found or had no value.
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] The Agent will not attempt to automatically determine its name from the Application Server because that feature has been disabled in the Introscope Agent Profile.
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Using the Agent name "CTileAgent" based on the "introscope.agent.agentName" property in the Introscope Agent Profile.
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Initial agent name set to CTileAgent
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Isengard] Initiating connection attempts to the Introscope Enterprise Manager.
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Isengard] The Agent reconnection delay is set to 15 second(s).
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.appmap.queue.size) set to default value of "1000"
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.appmap.queue.period) set to default value of "1000"
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Started transaction sampling service
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Configured error reporting throttle at 10
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Error snapshot collection has been enabled
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Started Error Reporting service
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Stall event service: stall threshold of 30 seconds
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Stall event service: resolution of 10 seconds
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Started Stall Service
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Tracer sampling interval has been set to 120 seconds.
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Tracer samples per interval has been set to 1.
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.IsengardServerConnectionManager] Connected Agent to the Introscope Enterprise Manager at localhost:5001,com.wily.isengard.postofficehub.link.net.DefaultSocketFactory. Host = "hserval", Process = "HIEXProcess", Agent Name = "CTileAgent".
+3/13/12 08:14:09 AM EDT [ERROR] [IntroscopeAgent.Agent] Attempted to create a metric with the invalid metric name "HIEX|Tracers|ctile|measureMe".
+3/13/12 08:14:09 AM EDT [INFO] [IntroscopeAgent.Agent] 
+
+	Custom Name Formatter is null
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Release 9.0.0.0 (Build 890698)
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Using Java VM version "Java HotSpot(TM) 64-Bit Server VM 1.6.0_30" from Sun Microsystems Inc.
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Trying to load agent profile based on system property "com.wily.introscope.agentProfile"
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Trying to load file from ./src/test/resources/agent-config/tracers/ctile/ctile2.profile
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Loaded file from ./src/test/resources/agent-config/tracers/ctile/ctile2.profile
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Thread priority (introscope.agent.thread.all.priority) set to default value of "5"
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Transaction Trace Limit (introscope.agent.ttClamp) set to "50"
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Limit (introscope.agent.metricClamp) set to default value of "-1"
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.maxrate) set to default value of "10"
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.initial.period) set to default value of "100"
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.reset.period) set to default value of "10000"
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Trace Component Count Limit (introscope.agent.transactiontrace.componentCountClamp) set to default value of "5000"
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Trace Head Filter Limit (introscope.agent.transactiontrace.headFilterClamp) set to default value of "30"
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.tailfilterPropagate.enable) set to default value of "false"
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging (introscope.agent.metricAging.turnOn) set to "true"
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Interval (introscope.agent.metricAging.heartbeatInterval) set to "1800" seconds
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Data Chunk (introscope.agent.metricAging.dataChunk) set to "500"
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Exclusion List (introscope.agent.metricAging.metricExclude.ignore) set to "[Threads*]"
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Agent Timeslice Intervals (introscope.agent.metricAging.numberTimeslices) set to "3000"
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Looking for agent profile property "introscope.agent.extensions.directory" to locate the extensions directory.
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] The agent extensions directory /home/nwhitehead/hprojects/hiex/hiex.agent/src/test/resources/agent-config/tracers/ctile/ext was successfully located
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Introscope AutoProbe Release 9.0.0.0 (Build 890698)
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.autoprobe.logging) set to default value of ""
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] The Introscope AutoProbe log has been created at /home/nwhitehead/hprojects/hiex/hiex.agent/src/test/resources/agent-config/tracers/ctile/logs/AutoProbe.log
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] No directive loader extensions found, using the default directive loader
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] AutoProbe has reloaded all directive configuration.  This is because a change to a directive configuration file was detected.
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.autoprobe.logskippedclasses.enabled) set to default value of "false"
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent] Fully Qualified Agent Host Name (introscope.agent.display.hostName.as.fqdn) set to "false"
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent] Configuration property (introscope.agent.hostName) set to default value of null
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Business Recording Enabled (introscope.agent.bizRecording.enabled) set to "true"
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Introscope Agent startup complete.			
+3/13/12 08:17:03 AM EDT [WARN] [IntroscopeAgent.ProbeTransformer] Unable to execute Bootstrap Transformation. A suitable plugin has not been loaded
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Client Hosts (introscope.agent.io.socket.client.hosts) set to ""
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Client Ports (introscope.agent.io.socket.client.ports) set to ""
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Server Ports (introscope.agent.io.socket.server.ports) set to ""
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Client Hosts (introscope.agent.nio.datagram.client.hosts) set to ""
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Client Hosts (introscope.agent.nio.socket.client.hosts) set to ""
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Client Ports (introscope.agent.nio.datagram.client.ports) set to ""
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Server Ports (introscope.agent.nio.datagram.server.ports) set to ""
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Client Ports (introscope.agent.nio.socket.client.ports) set to ""
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Server Ports (introscope.agent.nio.socket.server.ports) set to ""
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.charEncoding) set to default value of null
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.headers) set to default value of ""
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.parameters) set to default value of ""
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.attributes) set to default value of ""
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httpsession.attributes) set to default value of ""
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.userid.key) set to default value of null
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.userid.method) set to default value of null
+3/13/12 08:17:03 AM EDT [WARN] [IntroscopeAgent.Agent] Agent_Transaction_Trace_UserID_Not_Configured
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] The Agent will attempt to determine its name.
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Unable to determine the Agent name from the System Property "com.wily.introscope.agent.agentName" because that property was either not found or had no value.
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Unable to determine the Agent name from a user specified System Property because the property "introscope.agent.agentNameSystemPropertyKey" in the Introscope Agent Profile was either not found or had no value.
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] The Agent will not attempt to automatically determine its name from the Application Server because that feature has been disabled in the Introscope Agent Profile.
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Using the Agent name "CTileAgent" based on the "introscope.agent.agentName" property in the Introscope Agent Profile.
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Initial agent name set to CTileAgent
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Isengard] Initiating connection attempts to the Introscope Enterprise Manager.
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Isengard] The Agent reconnection delay is set to 15 second(s).
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.appmap.queue.size) set to default value of "1000"
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.appmap.queue.period) set to default value of "1000"
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Configured error reporting throttle at 10
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Error snapshot collection has been enabled
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Started Error Reporting service
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Stall event service: stall threshold of 30 seconds
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Stall event service: resolution of 10 seconds
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Started Stall Service
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Started transaction sampling service
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Tracer sampling interval has been set to 120 seconds.
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Tracer samples per interval has been set to 1.
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.IsengardServerConnectionManager] Connected Agent to the Introscope Enterprise Manager at localhost:5001,com.wily.isengard.postofficehub.link.net.DefaultSocketFactory. Host = "hserval", Process = "HIEXProcess", Agent Name = "CTileAgent".
+3/13/12 08:17:03 AM EDT [ERROR] [IntroscopeAgent.Agent] Attempted to create a metric with the invalid metric name "HIEX|Tracers|ctile|measureMe".
+3/13/12 08:17:03 AM EDT [INFO] [IntroscopeAgent.Agent] 
+
+	Custom Name Formatter is null
+3/13/12 08:17:04 AM EDT [ERROR] [IntroscopeAgent.Agent] Exception finishing method tracer for org.helios.hiex.agent.tracer.ctile.PercentileTestCase.measureMe
+3/13/12 08:17:05 AM EDT [ERROR] [IntroscopeAgent.Agent] Exception finishing method tracer for org.helios.hiex.agent.tracer.ctile.PercentileTestCase.measureMe
+3/13/12 08:17:06 AM EDT [ERROR] [IntroscopeAgent.Agent] Exception finishing method tracer for org.helios.hiex.agent.tracer.ctile.PercentileTestCase.measureMe
+3/13/12 08:17:08 AM EDT [ERROR] [IntroscopeAgent.Agent] Exception finishing method tracer for org.helios.hiex.agent.tracer.ctile.PercentileTestCase.measureMe
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Release 9.0.0.0 (Build 890698)
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Using Java VM version "Java HotSpot(TM) 64-Bit Server VM 1.6.0_30" from Sun Microsystems Inc.
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Trying to load agent profile based on system property "com.wily.introscope.agentProfile"
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Trying to load file from ./src/test/resources/agent-config/tracers/ctile/ctile2.profile
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Loaded file from ./src/test/resources/agent-config/tracers/ctile/ctile2.profile
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Thread priority (introscope.agent.thread.all.priority) set to default value of "5"
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Transaction Trace Limit (introscope.agent.ttClamp) set to "50"
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Limit (introscope.agent.metricClamp) set to default value of "-1"
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.maxrate) set to default value of "10"
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.initial.period) set to default value of "100"
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.reset.period) set to default value of "10000"
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Trace Component Count Limit (introscope.agent.transactiontrace.componentCountClamp) set to default value of "5000"
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Trace Head Filter Limit (introscope.agent.transactiontrace.headFilterClamp) set to default value of "30"
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.tailfilterPropagate.enable) set to default value of "false"
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging (introscope.agent.metricAging.turnOn) set to "true"
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Interval (introscope.agent.metricAging.heartbeatInterval) set to "1800" seconds
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Data Chunk (introscope.agent.metricAging.dataChunk) set to "500"
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Exclusion List (introscope.agent.metricAging.metricExclude.ignore) set to "[Threads*]"
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Agent Timeslice Intervals (introscope.agent.metricAging.numberTimeslices) set to "3000"
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Looking for agent profile property "introscope.agent.extensions.directory" to locate the extensions directory.
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] The agent extensions directory /home/nwhitehead/hprojects/hiex/hiex.agent/src/test/resources/agent-config/tracers/ctile/ext was successfully located
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Introscope AutoProbe Release 9.0.0.0 (Build 890698)
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.autoprobe.logging) set to default value of ""
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] The Introscope AutoProbe log has been created at /home/nwhitehead/hprojects/hiex/hiex.agent/src/test/resources/agent-config/tracers/ctile/logs/AutoProbe.log
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] No directive loader extensions found, using the default directive loader
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] AutoProbe has reloaded all directive configuration.  This is because a change to a directive configuration file was detected.
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.autoprobe.logskippedclasses.enabled) set to default value of "false"
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent] Fully Qualified Agent Host Name (introscope.agent.display.hostName.as.fqdn) set to "false"
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent] Configuration property (introscope.agent.hostName) set to default value of null
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Business Recording Enabled (introscope.agent.bizRecording.enabled) set to "true"
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Introscope Agent startup complete.			
+3/13/12 08:17:29 AM EDT [WARN] [IntroscopeAgent.ProbeTransformer] Unable to execute Bootstrap Transformation. A suitable plugin has not been loaded
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Client Hosts (introscope.agent.io.socket.client.hosts) set to ""
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Client Ports (introscope.agent.io.socket.client.ports) set to ""
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Server Ports (introscope.agent.io.socket.server.ports) set to ""
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Client Hosts (introscope.agent.nio.datagram.client.hosts) set to ""
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Client Hosts (introscope.agent.nio.socket.client.hosts) set to ""
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Client Ports (introscope.agent.nio.datagram.client.ports) set to ""
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Server Ports (introscope.agent.nio.datagram.server.ports) set to ""
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Client Ports (introscope.agent.nio.socket.client.ports) set to ""
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Server Ports (introscope.agent.nio.socket.server.ports) set to ""
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.charEncoding) set to default value of null
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.headers) set to default value of ""
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.parameters) set to default value of ""
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.attributes) set to default value of ""
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httpsession.attributes) set to default value of ""
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.userid.key) set to default value of null
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.userid.method) set to default value of null
+3/13/12 08:17:29 AM EDT [WARN] [IntroscopeAgent.Agent] Agent_Transaction_Trace_UserID_Not_Configured
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] The Agent will attempt to determine its name.
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Unable to determine the Agent name from the System Property "com.wily.introscope.agent.agentName" because that property was either not found or had no value.
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Unable to determine the Agent name from a user specified System Property because the property "introscope.agent.agentNameSystemPropertyKey" in the Introscope Agent Profile was either not found or had no value.
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] The Agent will not attempt to automatically determine its name from the Application Server because that feature has been disabled in the Introscope Agent Profile.
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Using the Agent name "CTileAgent" based on the "introscope.agent.agentName" property in the Introscope Agent Profile.
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Initial agent name set to CTileAgent
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Isengard] Initiating connection attempts to the Introscope Enterprise Manager.
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Isengard] The Agent reconnection delay is set to 15 second(s).
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.appmap.queue.size) set to default value of "1000"
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.appmap.queue.period) set to default value of "1000"
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Configured error reporting throttle at 10
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Error snapshot collection has been enabled
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Started Error Reporting service
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Stall event service: stall threshold of 30 seconds
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Stall event service: resolution of 10 seconds
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Started Stall Service
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Started transaction sampling service
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Tracer sampling interval has been set to 120 seconds.
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Tracer samples per interval has been set to 1.
+3/13/12 08:17:29 AM EDT [INFO] [IntroscopeAgent.IsengardServerConnectionManager] Connected Agent to the Introscope Enterprise Manager at localhost:5001,com.wily.isengard.postofficehub.link.net.DefaultSocketFactory. Host = "hserval", Process = "HIEXProcess", Agent Name = "CTileAgent".
+3/13/12 08:17:30 AM EDT [ERROR] [IntroscopeAgent.Agent] Attempted to create a metric with the invalid metric name "HIEX|Tracers|ctile|measureMe".
+3/13/12 08:17:32 AM EDT [INFO] [IntroscopeAgent.Agent] 
+
+	Custom Name Formatter is null
+3/13/12 08:18:09 AM EDT [ERROR] [IntroscopeAgent.Agent] Exception finishing method tracer for org.helios.hiex.agent.tracer.ctile.PercentileTestCase.measureMe
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Release 9.0.0.0 (Build 890698)
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Using Java VM version "Java HotSpot(TM) 64-Bit Server VM 1.6.0_30" from Sun Microsystems Inc.
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Trying to load agent profile based on system property "com.wily.introscope.agentProfile"
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Trying to load file from ./src/test/resources/agent-config/tracers/ctile/ctile2.profile
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Loaded file from ./src/test/resources/agent-config/tracers/ctile/ctile2.profile
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Thread priority (introscope.agent.thread.all.priority) set to default value of "5"
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Transaction Trace Limit (introscope.agent.ttClamp) set to "50"
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Limit (introscope.agent.metricClamp) set to default value of "-1"
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.maxrate) set to default value of "10"
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.initial.period) set to default value of "100"
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.reset.period) set to default value of "10000"
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Trace Component Count Limit (introscope.agent.transactiontrace.componentCountClamp) set to default value of "5000"
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Trace Head Filter Limit (introscope.agent.transactiontrace.headFilterClamp) set to default value of "30"
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.tailfilterPropagate.enable) set to default value of "false"
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging (introscope.agent.metricAging.turnOn) set to "true"
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Interval (introscope.agent.metricAging.heartbeatInterval) set to "1800" seconds
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Data Chunk (introscope.agent.metricAging.dataChunk) set to "500"
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Exclusion List (introscope.agent.metricAging.metricExclude.ignore) set to "[Threads*]"
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Agent Timeslice Intervals (introscope.agent.metricAging.numberTimeslices) set to "3000"
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Looking for agent profile property "introscope.agent.extensions.directory" to locate the extensions directory.
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] The agent extensions directory /home/nwhitehead/hprojects/hiex/hiex.agent/src/test/resources/agent-config/tracers/ctile/ext was successfully located
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Introscope AutoProbe Release 9.0.0.0 (Build 890698)
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.autoprobe.logging) set to default value of ""
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] The Introscope AutoProbe log has been created at /home/nwhitehead/hprojects/hiex/hiex.agent/src/test/resources/agent-config/tracers/ctile/logs/AutoProbe.log
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] No directive loader extensions found, using the default directive loader
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] AutoProbe has reloaded all directive configuration.  This is because a change to a directive configuration file was detected.
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.autoprobe.logskippedclasses.enabled) set to default value of "false"
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent] Fully Qualified Agent Host Name (introscope.agent.display.hostName.as.fqdn) set to "false"
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent] Configuration property (introscope.agent.hostName) set to default value of null
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Business Recording Enabled (introscope.agent.bizRecording.enabled) set to "true"
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Introscope Agent startup complete.			
+3/13/12 08:18:50 AM EDT [WARN] [IntroscopeAgent.ProbeTransformer] Unable to execute Bootstrap Transformation. A suitable plugin has not been loaded
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Client Hosts (introscope.agent.io.socket.client.hosts) set to ""
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Client Ports (introscope.agent.io.socket.client.ports) set to ""
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Server Ports (introscope.agent.io.socket.server.ports) set to ""
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Client Hosts (introscope.agent.nio.datagram.client.hosts) set to ""
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Client Hosts (introscope.agent.nio.socket.client.hosts) set to ""
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Client Ports (introscope.agent.nio.datagram.client.ports) set to ""
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Server Ports (introscope.agent.nio.datagram.server.ports) set to ""
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Client Ports (introscope.agent.nio.socket.client.ports) set to ""
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Server Ports (introscope.agent.nio.socket.server.ports) set to ""
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.charEncoding) set to default value of null
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.headers) set to default value of ""
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.parameters) set to default value of ""
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.attributes) set to default value of ""
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httpsession.attributes) set to default value of ""
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.userid.key) set to default value of null
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.userid.method) set to default value of null
+3/13/12 08:18:50 AM EDT [WARN] [IntroscopeAgent.Agent] Agent_Transaction_Trace_UserID_Not_Configured
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] The Agent will attempt to determine its name.
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Unable to determine the Agent name from the System Property "com.wily.introscope.agent.agentName" because that property was either not found or had no value.
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Unable to determine the Agent name from a user specified System Property because the property "introscope.agent.agentNameSystemPropertyKey" in the Introscope Agent Profile was either not found or had no value.
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] The Agent will not attempt to automatically determine its name from the Application Server because that feature has been disabled in the Introscope Agent Profile.
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Using the Agent name "CTileAgent" based on the "introscope.agent.agentName" property in the Introscope Agent Profile.
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Initial agent name set to CTileAgent
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Isengard] Initiating connection attempts to the Introscope Enterprise Manager.
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Isengard] The Agent reconnection delay is set to 15 second(s).
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.appmap.queue.size) set to default value of "1000"
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.appmap.queue.period) set to default value of "1000"
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Started transaction sampling service
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Tracer sampling interval has been set to 120 seconds.
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Tracer samples per interval has been set to 1.
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.IsengardServerConnectionManager] Connected Agent to the Introscope Enterprise Manager at localhost:5001,com.wily.isengard.postofficehub.link.net.DefaultSocketFactory. Host = "hserval", Process = "HIEXProcess", Agent Name = "CTileAgent".
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Configured error reporting throttle at 10
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Error snapshot collection has been enabled
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Started Error Reporting service
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Stall event service: stall threshold of 30 seconds
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Stall event service: resolution of 10 seconds
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] Started Stall Service
+3/13/12 08:18:50 AM EDT [ERROR] [IntroscopeAgent.Agent] Attempted to create a metric with the invalid metric name "HIEX|Tracers|ctile|measureMe".
+3/13/12 08:18:50 AM EDT [INFO] [IntroscopeAgent.Agent] 
+
+	Custom Name Formatter is null
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Release 9.0.0.0 (Build 890698)
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Using Java VM version "Java HotSpot(TM) 64-Bit Server VM 1.6.0_30" from Sun Microsystems Inc.
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Trying to load agent profile based on system property "com.wily.introscope.agentProfile"
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Trying to load file from ./src/test/resources/agent-config/tracers/ctile/ctile2.profile
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Loaded file from ./src/test/resources/agent-config/tracers/ctile/ctile2.profile
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Thread priority (introscope.agent.thread.all.priority) set to default value of "5"
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Transaction Trace Limit (introscope.agent.ttClamp) set to "50"
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Limit (introscope.agent.metricClamp) set to default value of "-1"
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.maxrate) set to default value of "10"
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.initial.period) set to default value of "100"
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.reset.period) set to default value of "10000"
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Trace Component Count Limit (introscope.agent.transactiontrace.componentCountClamp) set to default value of "5000"
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Trace Head Filter Limit (introscope.agent.transactiontrace.headFilterClamp) set to default value of "30"
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.tailfilterPropagate.enable) set to default value of "false"
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging (introscope.agent.metricAging.turnOn) set to "true"
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Interval (introscope.agent.metricAging.heartbeatInterval) set to "1800" seconds
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Data Chunk (introscope.agent.metricAging.dataChunk) set to "500"
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Exclusion List (introscope.agent.metricAging.metricExclude.ignore) set to "[Threads*]"
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Agent Timeslice Intervals (introscope.agent.metricAging.numberTimeslices) set to "3000"
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Looking for agent profile property "introscope.agent.extensions.directory" to locate the extensions directory.
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] The agent extensions directory /home/nwhitehead/hprojects/hiex/hiex.agent/src/test/resources/agent-config/tracers/ctile/ext was successfully located
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Introscope AutoProbe Release 9.0.0.0 (Build 890698)
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.autoprobe.logging) set to default value of ""
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] The Introscope AutoProbe log has been created at /home/nwhitehead/hprojects/hiex/hiex.agent/src/test/resources/agent-config/tracers/ctile/logs/AutoProbe.log
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] No directive loader extensions found, using the default directive loader
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] AutoProbe has reloaded all directive configuration.  This is because a change to a directive configuration file was detected.
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.autoprobe.logskippedclasses.enabled) set to default value of "false"
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent] Fully Qualified Agent Host Name (introscope.agent.display.hostName.as.fqdn) set to "false"
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent] Configuration property (introscope.agent.hostName) set to default value of null
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Business Recording Enabled (introscope.agent.bizRecording.enabled) set to "true"
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Introscope Agent startup complete.			
+3/13/12 08:19:05 AM EDT [WARN] [IntroscopeAgent.ProbeTransformer] Unable to execute Bootstrap Transformation. A suitable plugin has not been loaded
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Client Hosts (introscope.agent.io.socket.client.hosts) set to ""
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Client Ports (introscope.agent.io.socket.client.ports) set to ""
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Server Ports (introscope.agent.io.socket.server.ports) set to ""
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Client Hosts (introscope.agent.nio.datagram.client.hosts) set to ""
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Client Hosts (introscope.agent.nio.socket.client.hosts) set to ""
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Client Ports (introscope.agent.nio.datagram.client.ports) set to ""
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Server Ports (introscope.agent.nio.datagram.server.ports) set to ""
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Client Ports (introscope.agent.nio.socket.client.ports) set to ""
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Server Ports (introscope.agent.nio.socket.server.ports) set to ""
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.charEncoding) set to default value of null
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.headers) set to default value of ""
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.parameters) set to default value of ""
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.attributes) set to default value of ""
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httpsession.attributes) set to default value of ""
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.userid.key) set to default value of null
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.userid.method) set to default value of null
+3/13/12 08:19:05 AM EDT [WARN] [IntroscopeAgent.Agent] Agent_Transaction_Trace_UserID_Not_Configured
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] The Agent will attempt to determine its name.
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Unable to determine the Agent name from the System Property "com.wily.introscope.agent.agentName" because that property was either not found or had no value.
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Unable to determine the Agent name from a user specified System Property because the property "introscope.agent.agentNameSystemPropertyKey" in the Introscope Agent Profile was either not found or had no value.
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] The Agent will not attempt to automatically determine its name from the Application Server because that feature has been disabled in the Introscope Agent Profile.
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Using the Agent name "CTileAgent" based on the "introscope.agent.agentName" property in the Introscope Agent Profile.
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Initial agent name set to CTileAgent
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Isengard] Initiating connection attempts to the Introscope Enterprise Manager.
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Isengard] The Agent reconnection delay is set to 15 second(s).
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.appmap.queue.size) set to default value of "1000"
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.appmap.queue.period) set to default value of "1000"
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Started transaction sampling service
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Configured error reporting throttle at 10
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Error snapshot collection has been enabled
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Started Error Reporting service
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Stall event service: stall threshold of 30 seconds
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Stall event service: resolution of 10 seconds
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Started Stall Service
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Tracer sampling interval has been set to 120 seconds.
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Tracer samples per interval has been set to 1.
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.IsengardServerConnectionManager] Connected Agent to the Introscope Enterprise Manager at localhost:5001,com.wily.isengard.postofficehub.link.net.DefaultSocketFactory. Host = "hserval", Process = "HIEXProcess", Agent Name = "CTileAgent".
+3/13/12 08:19:05 AM EDT [ERROR] [IntroscopeAgent.Agent] Attempted to create a metric with the invalid metric name "HIEX|Tracers|ctile|measureMe".
+3/13/12 08:19:05 AM EDT [INFO] [IntroscopeAgent.Agent] 
+
+	Custom Name Formatter is null
+3/13/12 08:19:10 AM EDT [ERROR] [IntroscopeAgent.Agent] Exception finishing method tracer for org.helios.hiex.agent.tracer.ctile.PercentileTestCase.measureMe
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Release 9.0.0.0 (Build 890698)
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Using Java VM version "Java HotSpot(TM) 64-Bit Server VM 1.6.0_30" from Sun Microsystems Inc.
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Trying to load agent profile based on system property "com.wily.introscope.agentProfile"
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Trying to load file from ./src/test/resources/agent-config/tracers/ctile/ctile2.profile
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Loaded file from ./src/test/resources/agent-config/tracers/ctile/ctile2.profile
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Thread priority (introscope.agent.thread.all.priority) set to default value of "5"
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Transaction Trace Limit (introscope.agent.ttClamp) set to "50"
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Limit (introscope.agent.metricClamp) set to default value of "-1"
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.maxrate) set to default value of "10"
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.initial.period) set to default value of "100"
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.reset.period) set to default value of "10000"
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Trace Component Count Limit (introscope.agent.transactiontrace.componentCountClamp) set to default value of "5000"
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Trace Head Filter Limit (introscope.agent.transactiontrace.headFilterClamp) set to default value of "30"
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.tailfilterPropagate.enable) set to default value of "false"
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging (introscope.agent.metricAging.turnOn) set to "true"
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Interval (introscope.agent.metricAging.heartbeatInterval) set to "1800" seconds
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Data Chunk (introscope.agent.metricAging.dataChunk) set to "500"
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Exclusion List (introscope.agent.metricAging.metricExclude.ignore) set to "[Threads*]"
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Agent Timeslice Intervals (introscope.agent.metricAging.numberTimeslices) set to "3000"
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Looking for agent profile property "introscope.agent.extensions.directory" to locate the extensions directory.
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] The agent extensions directory /home/nwhitehead/hprojects/hiex/hiex.agent/src/test/resources/agent-config/tracers/ctile/ext was successfully located
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Introscope AutoProbe Release 9.0.0.0 (Build 890698)
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.autoprobe.logging) set to default value of ""
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] The Introscope AutoProbe log has been created at /home/nwhitehead/hprojects/hiex/hiex.agent/src/test/resources/agent-config/tracers/ctile/logs/AutoProbe.log
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] No directive loader extensions found, using the default directive loader
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] AutoProbe has reloaded all directive configuration.  This is because a change to a directive configuration file was detected.
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.autoprobe.logskippedclasses.enabled) set to default value of "false"
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent] Fully Qualified Agent Host Name (introscope.agent.display.hostName.as.fqdn) set to "false"
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent] Configuration property (introscope.agent.hostName) set to default value of null
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Business Recording Enabled (introscope.agent.bizRecording.enabled) set to "true"
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Introscope Agent startup complete.			
+3/13/12 08:23:47 AM EDT [WARN] [IntroscopeAgent.ProbeTransformer] Unable to execute Bootstrap Transformation. A suitable plugin has not been loaded
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Client Hosts (introscope.agent.io.socket.client.hosts) set to ""
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Client Ports (introscope.agent.io.socket.client.ports) set to ""
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Server Ports (introscope.agent.io.socket.server.ports) set to ""
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Client Hosts (introscope.agent.nio.datagram.client.hosts) set to ""
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Client Hosts (introscope.agent.nio.socket.client.hosts) set to ""
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Client Ports (introscope.agent.nio.datagram.client.ports) set to ""
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Server Ports (introscope.agent.nio.datagram.server.ports) set to ""
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Client Ports (introscope.agent.nio.socket.client.ports) set to ""
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Server Ports (introscope.agent.nio.socket.server.ports) set to ""
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.charEncoding) set to default value of null
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.headers) set to default value of ""
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.parameters) set to default value of ""
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.attributes) set to default value of ""
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httpsession.attributes) set to default value of ""
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.userid.key) set to default value of null
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.userid.method) set to default value of null
+3/13/12 08:23:47 AM EDT [WARN] [IntroscopeAgent.Agent] Agent_Transaction_Trace_UserID_Not_Configured
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] The Agent will attempt to determine its name.
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Unable to determine the Agent name from the System Property "com.wily.introscope.agent.agentName" because that property was either not found or had no value.
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Unable to determine the Agent name from a user specified System Property because the property "introscope.agent.agentNameSystemPropertyKey" in the Introscope Agent Profile was either not found or had no value.
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] The Agent will not attempt to automatically determine its name from the Application Server because that feature has been disabled in the Introscope Agent Profile.
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Using the Agent name "CTileAgent" based on the "introscope.agent.agentName" property in the Introscope Agent Profile.
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Initial agent name set to CTileAgent
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Isengard] Initiating connection attempts to the Introscope Enterprise Manager.
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Isengard] The Agent reconnection delay is set to 15 second(s).
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.appmap.queue.size) set to default value of "1000"
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.appmap.queue.period) set to default value of "1000"
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Configured error reporting throttle at 10
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Error snapshot collection has been enabled
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Started Error Reporting service
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Stall event service: stall threshold of 30 seconds
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Stall event service: resolution of 10 seconds
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Started Stall Service
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Started transaction sampling service
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Tracer sampling interval has been set to 120 seconds.
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Tracer samples per interval has been set to 1.
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.IsengardServerConnectionManager] Connected Agent to the Introscope Enterprise Manager at localhost:5001,com.wily.isengard.postofficehub.link.net.DefaultSocketFactory. Host = "hserval", Process = "HIEXProcess", Agent Name = "CTileAgent".
+3/13/12 08:23:47 AM EDT [ERROR] [IntroscopeAgent.Agent] Attempted to create a metric with the invalid metric name "HIEX|Tracers|ctile|measureMe".
+3/13/12 08:23:47 AM EDT [INFO] [IntroscopeAgent.Agent] 
+
+	Custom Name Formatter is null
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Release 9.0.0.0 (Build 890698)
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Using Java VM version "Java HotSpot(TM) 64-Bit Server VM 1.6.0_30" from Sun Microsystems Inc.
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Trying to load agent profile based on system property "com.wily.introscope.agentProfile"
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Trying to load file from ./src/test/resources/agent-config/tracers/ctile/ctile2.profile
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Loaded file from ./src/test/resources/agent-config/tracers/ctile/ctile2.profile
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Thread priority (introscope.agent.thread.all.priority) set to default value of "5"
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Transaction Trace Limit (introscope.agent.ttClamp) set to "50"
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Limit (introscope.agent.metricClamp) set to default value of "-1"
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.maxrate) set to default value of "10"
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.initial.period) set to default value of "100"
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.reset.period) set to default value of "10000"
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Trace Component Count Limit (introscope.agent.transactiontrace.componentCountClamp) set to default value of "5000"
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Trace Head Filter Limit (introscope.agent.transactiontrace.headFilterClamp) set to default value of "30"
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.tailfilterPropagate.enable) set to default value of "false"
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging (introscope.agent.metricAging.turnOn) set to "true"
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Interval (introscope.agent.metricAging.heartbeatInterval) set to "1800" seconds
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Data Chunk (introscope.agent.metricAging.dataChunk) set to "500"
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Exclusion List (introscope.agent.metricAging.metricExclude.ignore) set to "[Threads*]"
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Agent Timeslice Intervals (introscope.agent.metricAging.numberTimeslices) set to "3000"
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Looking for agent profile property "introscope.agent.extensions.directory" to locate the extensions directory.
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] The agent extensions directory /home/nwhitehead/hprojects/hiex/hiex.agent/src/test/resources/agent-config/tracers/ctile/ext was successfully located
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Introscope AutoProbe Release 9.0.0.0 (Build 890698)
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.autoprobe.logging) set to default value of ""
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] The Introscope AutoProbe log has been created at /home/nwhitehead/hprojects/hiex/hiex.agent/src/test/resources/agent-config/tracers/ctile/logs/AutoProbe.log
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] No directive loader extensions found, using the default directive loader
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] AutoProbe has reloaded all directive configuration.  This is because a change to a directive configuration file was detected.
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.autoprobe.logskippedclasses.enabled) set to default value of "false"
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent] Fully Qualified Agent Host Name (introscope.agent.display.hostName.as.fqdn) set to "false"
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent] Configuration property (introscope.agent.hostName) set to default value of null
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Business Recording Enabled (introscope.agent.bizRecording.enabled) set to "true"
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Introscope Agent startup complete.			
+3/13/12 08:44:47 AM EDT [WARN] [IntroscopeAgent.ProbeTransformer] Unable to execute Bootstrap Transformation. A suitable plugin has not been loaded
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Client Hosts (introscope.agent.io.socket.client.hosts) set to ""
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Client Ports (introscope.agent.io.socket.client.ports) set to ""
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Server Ports (introscope.agent.io.socket.server.ports) set to ""
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Client Hosts (introscope.agent.nio.datagram.client.hosts) set to ""
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Client Hosts (introscope.agent.nio.socket.client.hosts) set to ""
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Client Ports (introscope.agent.nio.datagram.client.ports) set to ""
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Server Ports (introscope.agent.nio.datagram.server.ports) set to ""
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Client Ports (introscope.agent.nio.socket.client.ports) set to ""
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Server Ports (introscope.agent.nio.socket.server.ports) set to ""
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.charEncoding) set to default value of null
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.headers) set to default value of ""
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.parameters) set to default value of ""
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.attributes) set to default value of ""
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httpsession.attributes) set to default value of ""
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.userid.key) set to default value of null
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.userid.method) set to default value of null
+3/13/12 08:44:47 AM EDT [WARN] [IntroscopeAgent.Agent] Agent_Transaction_Trace_UserID_Not_Configured
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] The Agent will attempt to determine its name.
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Unable to determine the Agent name from the System Property "com.wily.introscope.agent.agentName" because that property was either not found or had no value.
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Unable to determine the Agent name from a user specified System Property because the property "introscope.agent.agentNameSystemPropertyKey" in the Introscope Agent Profile was either not found or had no value.
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] The Agent will not attempt to automatically determine its name from the Application Server because that feature has been disabled in the Introscope Agent Profile.
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Using the Agent name "CTileAgent" based on the "introscope.agent.agentName" property in the Introscope Agent Profile.
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Initial agent name set to CTileAgent
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Isengard] Initiating connection attempts to the Introscope Enterprise Manager.
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Isengard] The Agent reconnection delay is set to 15 second(s).
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.appmap.queue.size) set to default value of "1000"
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.appmap.queue.period) set to default value of "1000"
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Started transaction sampling service
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Configured error reporting throttle at 10
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Error snapshot collection has been enabled
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Started Error Reporting service
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Stall event service: stall threshold of 30 seconds
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Stall event service: resolution of 10 seconds
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Started Stall Service
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Tracer sampling interval has been set to 120 seconds.
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Tracer samples per interval has been set to 1.
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.IsengardServerConnectionManager] Connected Agent to the Introscope Enterprise Manager at localhost:5001,com.wily.isengard.postofficehub.link.net.DefaultSocketFactory. Host = "hserval", Process = "HIEXProcess", Agent Name = "CTileAgent".
+3/13/12 08:44:47 AM EDT [ERROR] [IntroscopeAgent.Agent] Attempted to create a metric with the invalid metric name "HIEX|Tracers|ctile|measureMe".
+3/13/12 08:44:47 AM EDT [INFO] [IntroscopeAgent.Agent] 
+
+	Custom Name Formatter is null
+3/13/12 08:45:02 AM EDT [ERROR] [IntroscopeAgent.Agent] Interval Calc Percentile Failure for [HIEX|Tracers|ctile|measureMe]
+java.lang.RuntimeException: SubName Not Indexed [percentlgt]
+	at org.helios.hiex.agent.tracer.ctile.CtileMetricAccumulator.createIDataAccumulator(CtileMetricAccumulator.java:178)
+	at org.helios.hiex.agent.tracer.ctile.CtileMetricAccumulator.getDataAccumulator(CtileMetricAccumulator.java:142)
+	at org.helios.hiex.agent.tracer.ctile.CtileMetricAccumulator.calcAndPublishInterval(CtileMetricAccumulator.java:253)
+	at org.helios.hiex.agent.tracer.ctile.MethodTimerCtile.ITimestampedRunnable_execute(MethodTimerCtile.java:249)
+	at com.wily.util.heartbeat.IntervalHeartbeat$BehaviorNode.execute(IntervalHeartbeat.java:944)
+	at com.wily.util.heartbeat.IntervalHeartbeat.executeNextBehaviorAndCalculateSleepTime(IntervalHeartbeat.java:489)
+	at com.wily.util.heartbeat.IntervalHeartbeat.access$2(IntervalHeartbeat.java:443)
+	at com.wily.util.heartbeat.IntervalHeartbeat$HeartbeatRunnable.run(IntervalHeartbeat.java:665)
+	at java.lang.Thread.run(Thread.java:662)
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Release 9.0.0.0 (Build 890698)
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Using Java VM version "Java HotSpot(TM) 64-Bit Server VM 1.6.0_30" from Sun Microsystems Inc.
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Trying to load agent profile based on system property "com.wily.introscope.agentProfile"
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Trying to load file from ./src/test/resources/agent-config/tracers/ctile/ctile2.profile
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Loaded file from ./src/test/resources/agent-config/tracers/ctile/ctile2.profile
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Thread priority (introscope.agent.thread.all.priority) set to default value of "5"
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Transaction Trace Limit (introscope.agent.ttClamp) set to "50"
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Limit (introscope.agent.metricClamp) set to default value of "-1"
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.maxrate) set to default value of "10"
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.initial.period) set to default value of "100"
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.tracer.sampling.reset.period) set to default value of "10000"
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Trace Component Count Limit (introscope.agent.transactiontrace.componentCountClamp) set to default value of "5000"
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Trace Head Filter Limit (introscope.agent.transactiontrace.headFilterClamp) set to default value of "30"
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.tailfilterPropagate.enable) set to default value of "false"
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging (introscope.agent.metricAging.turnOn) set to "true"
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Interval (introscope.agent.metricAging.heartbeatInterval) set to "1800" seconds
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Data Chunk (introscope.agent.metricAging.dataChunk) set to "500"
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Aging Exclusion List (introscope.agent.metricAging.metricExclude.ignore) set to "[Threads*]"
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Agent Metric Agent Timeslice Intervals (introscope.agent.metricAging.numberTimeslices) set to "3000"
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Looking for agent profile property "introscope.agent.extensions.directory" to locate the extensions directory.
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] The agent extensions directory /home/nwhitehead/hprojects/hiex/hiex.agent/src/test/resources/agent-config/tracers/ctile/ext was successfully located
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Introscope AutoProbe Release 9.0.0.0 (Build 890698)
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.autoprobe.logging) set to default value of ""
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] The Introscope AutoProbe log has been created at /home/nwhitehead/hprojects/hiex/hiex.agent/src/test/resources/agent-config/tracers/ctile/logs/AutoProbe.log
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] No directive loader extensions found, using the default directive loader
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] AutoProbe has reloaded all directive configuration.  This is because a change to a directive configuration file was detected.
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.autoprobe.logskippedclasses.enabled) set to default value of "false"
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent] Fully Qualified Agent Host Name (introscope.agent.display.hostName.as.fqdn) set to "false"
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent] Configuration property (introscope.agent.hostName) set to default value of null
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Business Recording Enabled (introscope.agent.bizRecording.enabled) set to "true"
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Introscope Agent startup complete.			
+3/13/12 08:46:58 AM EDT [WARN] [IntroscopeAgent.ProbeTransformer] Unable to execute Bootstrap Transformation. A suitable plugin has not been loaded
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Client Hosts (introscope.agent.io.socket.client.hosts) set to ""
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Client Ports (introscope.agent.io.socket.client.ports) set to ""
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] I/O Socket Server Ports (introscope.agent.io.socket.server.ports) set to ""
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Client Hosts (introscope.agent.nio.datagram.client.hosts) set to ""
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Client Hosts (introscope.agent.nio.socket.client.hosts) set to ""
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Client Ports (introscope.agent.nio.datagram.client.ports) set to ""
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Datagram Server Ports (introscope.agent.nio.datagram.server.ports) set to ""
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Client Ports (introscope.agent.nio.socket.client.ports) set to ""
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] NIO Socket Server Ports (introscope.agent.nio.socket.server.ports) set to ""
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.charEncoding) set to default value of null
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.headers) set to default value of ""
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.parameters) set to default value of ""
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httprequest.attributes) set to default value of ""
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.parameter.httpsession.attributes) set to default value of ""
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.userid.key) set to default value of null
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.transactiontracer.userid.method) set to default value of null
+3/13/12 08:46:58 AM EDT [WARN] [IntroscopeAgent.Agent] Agent_Transaction_Trace_UserID_Not_Configured
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] The Agent will attempt to determine its name.
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Unable to determine the Agent name from the System Property "com.wily.introscope.agent.agentName" because that property was either not found or had no value.
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Unable to determine the Agent name from a user specified System Property because the property "introscope.agent.agentNameSystemPropertyKey" in the Introscope Agent Profile was either not found or had no value.
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] The Agent will not attempt to automatically determine its name from the Application Server because that feature has been disabled in the Introscope Agent Profile.
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Using the Agent name "CTileAgent" based on the "introscope.agent.agentName" property in the Introscope Agent Profile.
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Initial agent name set to CTileAgent
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Isengard] Initiating connection attempts to the Introscope Enterprise Manager.
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Isengard] The Agent reconnection delay is set to 15 second(s).
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.appmap.queue.size) set to default value of "1000"
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Configuration property (introscope.agent.appmap.queue.period) set to default value of "1000"
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Configured error reporting throttle at 10
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Error snapshot collection has been enabled
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Started Error Reporting service
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Stall event service: stall threshold of 30 seconds
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Stall event service: resolution of 10 seconds
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Started Stall Service
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Started transaction sampling service
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Tracer sampling interval has been set to 120 seconds.
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] Transaction Tracer samples per interval has been set to 1.
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.IsengardServerConnectionManager] Connected Agent to the Introscope Enterprise Manager at localhost:5001,com.wily.isengard.postofficehub.link.net.DefaultSocketFactory. Host = "hserval", Process = "HIEXProcess", Agent Name = "CTileAgent".
+3/13/12 08:46:58 AM EDT [ERROR] [IntroscopeAgent.Agent] Attempted to create a metric with the invalid metric name "HIEX|Tracers|ctile|measureMe".
+3/13/12 08:46:58 AM EDT [INFO] [IntroscopeAgent.Agent] 
+
+	Custom Name Formatter is null
+3/13/12 08:47:13 AM EDT [ERROR] [IntroscopeAgent.Agent] Attempted to create a metric with the invalid metric name "HIEX|Tracers|ctile|measureMe|null".
