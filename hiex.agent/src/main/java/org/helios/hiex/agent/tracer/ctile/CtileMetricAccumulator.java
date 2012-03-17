@@ -26,10 +26,16 @@ package org.helios.hiex.agent.tracer.ctile;
 
 import gnu.trove.list.array.TIntArrayList;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import org.helios.hiex.util.FlexiLogger;
 import org.helios.hiex.util.collections.StatsIntArray;
 import org.helios.hiex.util.collections.SynchronizedTIntArrayList;
 import org.helios.hiex.util.math.SimpleMath;
@@ -38,8 +44,6 @@ import com.wily.introscope.agent.stat.DataAccumulatorFactory;
 import com.wily.introscope.agent.stat.IDataAccumulator;
 import com.wily.introscope.agent.stat.IIntegerFluctuatingCounterDataAccumulator;
 import com.wily.introscope.agent.stat.ILongAverageDataAccumulator;
-import com.wily.introscope.agent.stat.IStringEveryEventDataAccumulator;
-import com.wily.util.feedback.IModuleFeedbackChannel;
 
 /**
  * <p>Title: CtileMetricAccumulator</p>
@@ -48,28 +52,22 @@ import com.wily.util.feedback.IModuleFeedbackChannel;
  * @author Whitehead (nwhitehead AT heliosdev DOT org)
  * <p><code>org.helios.hiex.agent.tracer.ctile.CtileMetricAccumulator</code></p>
  */
-public class CtileMetricAccumulator {
+public class CtileMetricAccumulator  {
 	/** The interval accumulator pair used to accumulate elapsed times during an interval window. */
-	protected SynchronizedTIntArrayList[] intervalAccumulators = new SynchronizedTIntArrayList[] {
+	protected final SynchronizedTIntArrayList[] intervalAccumulators = new SynchronizedTIntArrayList[] {
 			new SynchronizedTIntArrayList(), new SynchronizedTIntArrayList() };
-	/** A map of data accumulators indexed by sub-name */
-	protected Map<String, IDataAccumulator> accumulators = new ConcurrentHashMap<String, IDataAccumulator>();
-	/** The full metric name minus the sub type name */
-	private String metricResource = null;
 	/** The boolean alternator used to switch between interval accumulators on alternating intervals */
-	private AtomicBoolean alternator = null;
-	/** The accumulator factory used to create data accumulators */
-	private DataAccumulatorFactory tracerFactory = null;
-	/** The map of constants to configured sub metric names */
-	private Map<String, String> metricNameMap = null;
+	protected final AtomicBoolean alternator;
 	/** Indicates if the percentile calc. elapsed time should be traced */
-	private boolean tracePerformance = false;
+	protected final boolean tracePerformance;
 	/** Indicates if debug output should be traced */
-	private boolean debug = false;
+	protected final boolean debug;
 	/** The percentile to calculate */
-	private int percentile = 0;
+	protected final int percentile;
 	/** The agent logging channel */
-	private IModuleFeedbackChannel log = null;
+	protected final FlexiLogger log;
+	
+	
 	
 
 	/**
@@ -78,23 +76,13 @@ public class CtileMetricAccumulator {
 	 * @param percentile The percentile to calculate on.
 	 * @param tracePerformance  Indicates if the percentile calc. elapsed time should be traced
 	 * @param debug Indicates if debug output should be traced
-	 * @param tracerFactory The agent's tracer factory.
-	 * @param metricResource The full metric name minus the sub type name 
-	 * @param  metricNameMap The map of constants to configured metric names decode.
 	 * @param log The agent logger.
 	 */
-	public CtileMetricAccumulator(int percentile, AtomicBoolean alternator,
-			boolean tracePerformance, boolean debug,
-			DataAccumulatorFactory tracerFactory, String metricResource,
-			Map<String, String> metricNameMap, IModuleFeedbackChannel log) {
-
+	public CtileMetricAccumulator(int percentile, AtomicBoolean alternator, boolean tracePerformance, boolean debug, FlexiLogger log) {
 		this.percentile = percentile;
 		this.alternator = alternator;
 		this.tracePerformance = tracePerformance;
 		this.debug = debug;
-		this.tracerFactory = tracerFactory;
-		this.metricResource = metricResource;
-		this.metricNameMap = metricNameMap;
 		this.log = log;
 	}
 
@@ -103,15 +91,12 @@ public class CtileMetricAccumulator {
 	 * @return the current SynchronizedTIntArrayList
 	 */
 	public SynchronizedTIntArrayList getIntervalAccumulator() {
-
 		if (alternator.get()) {
-
 			return intervalAccumulators[1];
 		} else {
 
 			return intervalAccumulators[0];
 		}
-
 	}
 
 	/**
@@ -119,208 +104,82 @@ public class CtileMetricAccumulator {
 	 * @return the alternate SynchronizedTIntArrayList
 	 */
 	public SynchronizedTIntArrayList getAltIntervalAccumulator() {
-
 		if (alternator.get()) {
-
 			return intervalAccumulators[0];
 		} else {
-
 			return intervalAccumulators[1];
 		}
-
 	}
 
-	/**
-	 * Returns the data accumulator for the passed sub type code.
-	 * @param typeCode The sub type code.
-	 * @return A data accumumator.
-	 */
-	public IDataAccumulator getDataAccumulator(String typeCode) {
 
-		IDataAccumulator ida = accumulators.get(typeCode);
-		if (ida == null) {
-			ida = createIDataAccumulator(typeCode);
-			accumulators.put(typeCode, ida);
-		}
-
-		return ida;
-
-	}
-
-	/**
-	 * Creates a DataAccumulator for the given subName.
-	 * Constants map:<ul>
-	 * <li>PERCENTILE_ELAPSED : IIntegerFluctuatingCounterDataAccumulator</li>
-	 * <li>COUNT_LTOE_PERCENTILE : IIntegerFluctuatingCounterDataAccumulator</li>
-	 * <li>COUNT_GT_PERCENTILE : IIntegerFluctuatingCounterDataAccumulator</li>
-	 * <li>MEAN_ELAPSED : IIntegerFluctuatingCounterDataAccumulator</li>
-	 * <li>STDDEV_ELAPSED : IIntegerFluctuatingCounterDataAccumulator</li>
-	 * <li>COUNT_ELAPSED : IIntegerFluctuatingCounterDataAccumulator</li>
-	 * <li>DEBUG : IStringEveryEventDataAccumulator</li>
-	 * <li>PERCENTILE_PERF : ILongAverageDataAccumulator</li>
-	 * </ul>
-	 * @param subName The subName to create an accumulator for.
-	 * @return An IDataAccumulator
-	 */
-	private IDataAccumulator createIDataAccumulator(String subName) {
-		if (
-				
-				MethodTimerCtile.PERCENTILE_ELAPSED.equals(subName) || MethodTimerCtile.COUNT_LTOE_PERCENTILE.equals(subName) ||  
-				MethodTimerCtile.COUNT_GT_PERCENTILE.equals(subName) || MethodTimerCtile.MEAN_ELAPSED.equals(subName) ||
-				MethodTimerCtile.PERCENT_GT_PERCENTILE.equals(subName) || MethodTimerCtile.PERCENT_LTOE_PERCENTILE.equals(subName) ||
-				MethodTimerCtile.STDDEV_ELAPSED.equals(subName) || MethodTimerCtile.STDDEV_ELAPSED.equals(subName) ||
-				MethodTimerCtile.COUNT_ELAPSED.equals(subName)) {			
-			return tracerFactory.safeGetIntegerFluctuatingCounterDataAccumulator(metricResource + "|" 	+ metricNameMap.get(subName));
-			
-		} else if(MethodTimerCtile.PERCENTILE_PERF.equals(subName)) {
-			return tracerFactory.safeGetLongAverageDataAccumulator(metricResource + "|" + metricNameMap.get(subName));
-		} else if(MethodTimerCtile.DEBUG.equals(subName)) {
-			return tracerFactory.safeGetStringEveryEventDataAccumulator(metricResource + "|" + metricNameMap.get(subName));
-		} else {
-			throw new RuntimeException("SubName Not Indexed [" + subName + "]");
-		}
-
-	}
+	
 
 	/**
 	 * Adds an elapsed time to the current interval accumulator.
 	 * @param time The elapsed time of the method invocation.
 	 */
 	public void addElapsedTime(int time) {
-
 		getIntervalAccumulator().add(time);
-
 	}
 
-	/**
-	 * Determines if the dataAccumulator associated with the passed subName is shut off.
-	 * @param name The subName
-	 * @return true if the accumulator is shut off, false if it is on.
-	 */
-	protected boolean isShutOff(String name) {
-
-		IDataAccumulator ida = getDataAccumulator(name);
-		if (ida == null) {
-
-			return true;
-		} else {
-
-			return ida.IDataAccumulator_isShutOff();
-		}
-
-	}
 
 	/**
 	 * 
 	 */
-	public void calcAndPublishInterval() throws Exception {		
-		if(log.isDebugEnabled()) {
-			log.debug("Starting  calcAndPublishInterval for [" + metricResource + "]");
-		}
+	public Map<String, Number> calcAndPublishInterval(Map<String, String> metricNameMap) throws Exception {				
+		if(metricNameMap.size()<1) return Collections.emptyMap();
+		Map<String, Number> results = new HashMap<String, Number>(metricNameMap.size());
 		long start = System.currentTimeMillis();		
 		SynchronizedTIntArrayList lastInterval = getAltIntervalAccumulator();
 		if (lastInterval.size() < 2) {
 			lastInterval.reset();
 			// Need to publish zero out metrics here.
-			return;
+			return results;
 		}
 		try {
 			TIntArrayList lastIntervalValues = new TIntArrayList(lastInterval.toArray());
 			lastInterval.reset();
 			StatsIntArray statsArray = new StatsIntArray(lastIntervalValues.toArray());
-			int ctile = 0;
-			int total = -1;
-			int below = 0;
-			int above = 0;
-			int mean = 0;
-			int stddev = 0;
-		
-			if (!isShutOff(MethodTimerCtile.PERCENTILE_ELAPSED)) {
-				ctile = statsArray.percentileRankValue(percentile);
-				total = statsArray.size();
-				((IIntegerFluctuatingCounterDataAccumulator) getDataAccumulator(MethodTimerCtile.PERCENTILE_ELAPSED))
-						.IIntegerCounterDataAccumulator_setValue(ctile);
-				if (!isShutOff(MethodTimerCtile.COUNT_LTOE_PERCENTILE)) {
-					below = statsArray.grep(new PercentileDiscriminator(ctile))
-							.size();
-					((IIntegerFluctuatingCounterDataAccumulator) getDataAccumulator(MethodTimerCtile.COUNT_LTOE_PERCENTILE))
-							.IIntegerCounterDataAccumulator_setValue(below);
-					if (!isShutOff(MethodTimerCtile.COUNT_GT_PERCENTILE)) {
-						above = total - below;
-						((IIntegerFluctuatingCounterDataAccumulator) getDataAccumulator(MethodTimerCtile.COUNT_GT_PERCENTILE))
-								.IIntegerCounterDataAccumulator_setValue(above);
+			
+			
+			// The nth percentile elapsed time threshold
+			int ctile = statsArray.percentileRankValue(percentile);
+			int total = statsArray.size();
+			int below = statsArray.grep(new PercentileDiscriminator(ctile)).size();
+			int above = total - below;
 
-						int percentAbove = SimpleMath.ipercent(above, total);
-						int percentBelow = SimpleMath.ipercent(below, total);
-						((IIntegerFluctuatingCounterDataAccumulator) getDataAccumulator(MethodTimerCtile.PERCENT_GT_PERCENTILE))
-						.IIntegerCounterDataAccumulator_setValue(percentAbove);
-						((IIntegerFluctuatingCounterDataAccumulator) getDataAccumulator(MethodTimerCtile.PERCENT_LTOE_PERCENTILE))
-						.IIntegerCounterDataAccumulator_setValue(percentBelow);
-						
-						
-					}
-					
+			if(metricNameMap.containsKey(MethodTimerCtile.PERCENTILE_ELAPSED)) {
+				results.put(MethodTimerCtile.PERCENTILE_ELAPSED, ctile);
+			}
+			if(metricNameMap.containsKey(MethodTimerCtile.COUNT_LTOE_PERCENTILE)) {
+				results.put(MethodTimerCtile.COUNT_LTOE_PERCENTILE, below);				
+			}
+			if(metricNameMap.containsKey(MethodTimerCtile.COUNT_GT_PERCENTILE)) {
+				results.put(MethodTimerCtile.COUNT_GT_PERCENTILE, above);				
+			}
+			if(metricNameMap.containsKey(MethodTimerCtile.PERCENT_LTOE_PERCENTILE)) {
+				results.put(MethodTimerCtile.PERCENT_LTOE_PERCENTILE, SimpleMath.ipercent(below, total));				
+			}
+			if(metricNameMap.containsKey(MethodTimerCtile.PERCENT_GT_PERCENTILE)) {
+				results.put(MethodTimerCtile.PERCENT_GT_PERCENTILE, SimpleMath.ipercent(above, total));				
+			}
+			if(metricNameMap.containsKey(MethodTimerCtile.MEAN_ELAPSED)) {
+				int mean = statsArray.mean();
+				results.put(MethodTimerCtile.MEAN_ELAPSED, mean);
+				if(metricNameMap.containsKey(MethodTimerCtile.STDDEV_ELAPSED)) {
+					results.put(MethodTimerCtile.STDDEV_ELAPSED, statsArray.stddev());
 				}
 			}
-			if (!isShutOff(MethodTimerCtile.MEAN_ELAPSED)) {
-				mean = statsArray.mean();
-				((IIntegerFluctuatingCounterDataAccumulator) getDataAccumulator(MethodTimerCtile.MEAN_ELAPSED))
-						.IIntegerCounterDataAccumulator_setValue(mean);
+			if(metricNameMap.containsKey(MethodTimerCtile.COUNT_ELAPSED)) {
+				results.put(MethodTimerCtile.COUNT_ELAPSED, total);
 			}
-			if (!isShutOff(MethodTimerCtile.STDDEV_ELAPSED)) {
-				stddev = statsArray.stddev();
-				((IIntegerFluctuatingCounterDataAccumulator) getDataAccumulator(MethodTimerCtile.STDDEV_ELAPSED))
-						.IIntegerCounterDataAccumulator_setValue(stddev);
+			if(tracePerformance && metricNameMap.containsKey(MethodTimerCtile.PERCENTILE_PERF)) {
+				results.put(MethodTimerCtile.PERCENTILE_PERF, System.currentTimeMillis()-start);
 			}
-			if (!isShutOff(MethodTimerCtile.COUNT_ELAPSED)) {
-				if (total != -1)
-					total = statsArray.size();
-				((IIntegerFluctuatingCounterDataAccumulator) getDataAccumulator(MethodTimerCtile.COUNT_ELAPSED))
-						.IIntegerCounterDataAccumulator_setValue(total);
-			}
-
-			if (debug) {
-				if (!isShutOff(MethodTimerCtile.DEBUG)) {
-					ctile = statsArray.percentileRankValue(percentile);
-					int ctile2 = statsArray.percentileRankValue(percentile);
-					total = statsArray.size();
-					below = statsArray.grep(new PercentileDiscriminator(ctile))
-							.size();
-					above = total - below;
-					mean = statsArray.mean();
-					stddev = statsArray.stddev();
-					//=======
-					StringBuilder debugStr = new StringBuilder(statsArray
-							.printValues(true));
-					debugStr.append(StatsIntArray.CR);
-					debugStr
-							.append("COUNT, MEAN, PERCENTILE, PERCENTILE VALUE, PERCENTILE VALUE2, BELOW, ABOVE, STDDEV");
-					debugStr.append(StatsIntArray.CR);
-					debugStr.append(total).append(",");
-					debugStr.append(mean).append(",");
-					debugStr.append(percentile).append(",");
-					debugStr.append(ctile).append(",");
-					debugStr.append(ctile2).append(",");
-					debugStr.append(below).append(",");
-					debugStr.append(above).append(",");
-					debugStr.append(stddev).append(StatsIntArray.CR);
-					((IStringEveryEventDataAccumulator) getDataAccumulator(MethodTimerCtile.DEBUG))
-							.IStringEveryEventDataAccumulator_addString(debugStr
-									.toString());
-				}
-			}
-
-			if (tracePerformance) {
-				if (!isShutOff(MethodTimerCtile.PERCENTILE_PERF)) {
-					long elapsed = System.currentTimeMillis() - start;
-					((ILongAverageDataAccumulator) getDataAccumulator(MethodTimerCtile.PERCENTILE_PERF))
-							.ILongAggregatingDataAccumulator_recordDataPoint(elapsed);
-				}
-			}
-
+			return results;
 		} catch (Exception e) {
-			//  log and throw
-			throw e;
+			log.warn("Failed to calculate interval percentiles", e);
+			return Collections.emptyMap();
 		}
 
 	}
@@ -369,3 +228,33 @@ public class CtileMetricAccumulator {
 
 }
 
+//if (debug) {
+//if (!isShutOff(MethodTimerCtile.DEBUG)) {
+//	ctile = statsArray.percentileRankValue(percentile);
+//	int ctile2 = statsArray.percentileRankValue(percentile);
+//	total = statsArray.size();
+//	below = statsArray.grep(new PercentileDiscriminator(ctile))
+//			.size();
+//	above = total - below;
+//	mean = statsArray.mean();
+//	stddev = statsArray.stddev();
+//	//=======
+//	StringBuilder debugStr = new StringBuilder(statsArray
+//			.printValues(true));
+//	debugStr.append(StatsIntArray.CR);
+//	debugStr
+//			.append("COUNT, MEAN, PERCENTILE, PERCENTILE VALUE, PERCENTILE VALUE2, BELOW, ABOVE, STDDEV");
+//	debugStr.append(StatsIntArray.CR);
+//	debugStr.append(total).append(",");
+//	debugStr.append(mean).append(",");
+//	debugStr.append(percentile).append(",");
+//	debugStr.append(ctile).append(",");
+//	debugStr.append(ctile2).append(",");
+//	debugStr.append(below).append(",");
+//	debugStr.append(above).append(",");
+//	debugStr.append(stddev).append(StatsIntArray.CR);
+//	((IStringEveryEventDataAccumulator) getDataAccumulator(MethodTimerCtile.DEBUG))
+//			.IStringEveryEventDataAccumulator_addString(debugStr
+//					.toString());
+//}
+//}

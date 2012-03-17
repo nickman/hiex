@@ -3,13 +3,19 @@
  */
 package org.helios.hiex.agent.tracer.ctile;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.helios.hiex.agent.tracer.base.BaseSingleMetricTracerFactory;
 
 import com.wily.introscope.agent.IAgent;
 import com.wily.introscope.agent.stat.DataAccumulatorFactory;
@@ -40,46 +46,34 @@ import com.wily.util.properties.AttributeListing;
  * <li>The percentage of transactions with elapsed times above the nth
  * percentile.</li>
  * </ul></p> 
+ * @todo: Reentrancy:if kNone or kMethodName, a single instance of the tracer needs to be able to handle multiple crosscuts.
+ * Otherwise, it is kInstance in which case one instance of this tracer will be created per crosscut, so no multiplexing is necessary.
  * <p>Company: Helios Development Group LLC</p>
  * @author Whitehead (nwhitehead AT heliosdev DOT org)
  * <p><code>org.helios.hiex.agent.tracer.ctile.MethodTimerCtile</code></p>
  */
-public class MethodTimerCtile extends ASingleMetricTracerFactory implements
-		ITimestampedRunnable {
-	/** The agent logging channel */
-	private IModuleFeedbackChannel log;
-	/** The defined formatter */
-	private INameFormatter formatter = null;
-	/** The agent's tracer factory */
-	private DataAccumulatorFactory accumulatorFactory = null;
+public class MethodTimerCtile extends BaseSingleMetricTracerFactory {
 	/** The percentile to calculate */
-	private int percentile = 0;
+	protected int percentile = 0;
 	/** Metric name --> interval and data accumulators map */
-	private Map<String, CtileMetricAccumulator> accumulators = new ConcurrentHashMap<String, CtileMetricAccumulator>(
-			100);
-	/** Module */
-	private static final Module module = new Module("MethodTimerCtile");
+	protected final Map<String, CtileMetricAccumulator> accumulators = new ConcurrentHashMap<String, CtileMetricAccumulator>(100);
 	/** Alternator */
-	private AtomicBoolean alternator = new AtomicBoolean(false);
+	protected AtomicBoolean alternator = new AtomicBoolean(false);
 	/** Trace performance flag */
-	private boolean tracePerformance = false;
-	/** debug output flag */
-	private boolean debug = false;
+	protected boolean tracePerformance = false;
 	/** The map of constants to configured sub metric names */
-	private Map<String, String> metricNameMap = new HashMap<String, String>();
+	protected final Map<String, String> metricNameMap = new HashMap<String, String>();
 	/** The pbd defined resource pattern */
-	private String formattedResource = null;
+	protected String formattedResource = null;
 	/** The name of the percentile based resource segment */
-	private String percentileResourceName = null;
+	protected String percentileResourceName = null;
 	/** The name of the summary percentile based resource segment */
-	private String summaryPercentileResourceName = null;
+	protected String summaryPercentileResourceName = null;
 	
 	/** The key of the percentile parameter */
 	public static final String PERCENTILE_PARAM = "percentile";
 	/** The key of the performance parameter */
 	public static final String PERCENTILE_PERF = "performance";
-	/** The key of the performance period window */
-	public static final String PERCENTILE_PERIOD = "period";
 
 	/** The counter key of the percentile elapsed time */
 	public static final String PERCENTILE_ELAPSED = "percentileelapsed";
@@ -99,133 +93,84 @@ public class MethodTimerCtile extends ASingleMetricTracerFactory implements
 	public static final String COUNT_ELAPSED = "count";
 	/** The counter key of the standard deviation */
 	public static final String STDDEV_ELAPSED = "stddev";
-	/** The counter key of the debug output */
-	public static final String DEBUG = "debug";
-
-	/*
-	 * ===================== Formatting Resources =====================
-	 * Formatted
-	 * Name:WebServices|ByCaller|{servicename}|{operationname}|{header/SessionHeader/ns1/http;--example.org/username}:90
-	 * Average Response Time (ms) Formatted
-	 * Resource:WebServices|ByCaller|{servicename}|{operationname}|{header/SessionHeader/ns1/http;--example.org/username}
-	 * Name
-	 * Parameter:WebServices|ByCaller|{servicename}|{operationname}|{header/SessionHeader/ns1/http;--example.org/username}:90
-	 * Average Response Time (ms)
-	 * Resource:WebServices|ByCaller|{servicename}|{operationname}|{header/SessionHeader/ns1/http;--example.org/username}
-	 * =====================
-	 */
+	
+	/** Valid sub names that we can generate an accumulator for */
+	public static final Set<String> SUB_NAMES = Collections.unmodifiableSet(new HashSet<String>(Arrays.asList(new String[]{
+			MethodTimerCtile.PERCENTILE_ELAPSED , MethodTimerCtile.COUNT_LTOE_PERCENTILE,
+			MethodTimerCtile.COUNT_GT_PERCENTILE, MethodTimerCtile.MEAN_ELAPSED,
+			MethodTimerCtile.PERCENT_GT_PERCENTILE, MethodTimerCtile.PERCENT_LTOE_PERCENTILE,
+			MethodTimerCtile.STDDEV_ELAPSED, MethodTimerCtile.STDDEV_ELAPSED,
+			MethodTimerCtile.COUNT_ELAPSED			
+			
+	})));
+	
 
 	/**
 	 * Creates a new MethodTimeCtile tracer instance.
-	 * 
 	 * @param agent
 	 * @param parameters
 	 * @param probe
 	 * @param sampleTracedObject
 	 */
-	public MethodTimerCtile(IAgent agent, AttributeListing parameters,
-			ProbeIdentification probe, Object sampleTracedObject) {
-		super(agent, parameters, probe, sampleTracedObject);
-		formatter = this.getCustomNameFormatter();
-		formattedResource = this.getFormattedName();		
-		accumulatorFactory = getDataAccumulatorFactory();		
-		log = agent.IAgent_getModuleFeedback();
-		if (formatter == null) {
-			log.info("\n\n\tCustom Name Formatter is null");			
-		} else {
-			log.info("\n\n\tCustom Name Formatter:"
-					+ formatter.getClass().getName());
-		}
-		if (log.isDebugEnabled()) {
-			StringBuilder b = new StringBuilder(
-					"\n\n\n\n\t=====================\n\tFormatting Resources\n\t=====================");
-			b.append("\n\t").append("Formatted Name:").append(
-					this.getFormattedName());
-			b.append("\n\t").append("Formatted Resource:").append(
-					this.getFormattedResource());
-			b.append("\n\t=====================\n");
-			log.info(b.toString());
-			System.out.println(b.toString());
-		}
-
-		String ctile = getTracerParameterValue(PERCENTILE_PARAM, "90");
-		String periodParam = getTracerParameterValue(PERCENTILE_PERIOD, "15000");
-		try {
-			tracePerformance = Boolean.parseBoolean(getTracerParameterValue(
-					PERCENTILE_PERF, "false"));
-		} catch (Exception e) {
-			tracePerformance = false;
-		}
-		try {
-			debug = Boolean
-					.parseBoolean(getTracerParameterValue(DEBUG, "false"));
-		} catch (Exception e) {
-			debug = false;
-		}
-
-		percentile = Integer.parseInt(ctile);
+	public MethodTimerCtile(IAgent agent, AttributeListing parameters, ProbeIdentification probe, Object sampleTracedObject) {
+		super(agent, parameters, probe, sampleTracedObject);		
+		formattedResource = this.getFormattedName();				
+		percentile = getParameter(PERCENTILE_PARAM, 90);
+		tracePerformance = getParameter(PERCENTILE_PERF, false);
 		percentileResourceName = "Percentile " + percentile;
-		summaryPercentileResourceName = getCtileCalculationResourceName(formattedResource, percentileResourceName);
-		long period = Long.parseLong(periodParam);
-
+		summaryPercentileResourceName = getCtileResourceName(formattedResource, percentileResourceName);
 		initPatterns();
-		agent.IAgent_getCommonHeartbeat().addBehavior(this, module.getName(), true, period, true);
-		if (debug) {
-			getDataAccumulatorFactory().safeGetLongFluctuatingCounterDataAccumulator(summaryPercentileResourceName + "|Debug:Percentile Period (ms)").ILongCounterDataAccumulator_setValue(period);
+		if (DEBUG) {			
+			dataAccumulatorFactory.safeGetLongConstantDataAccumulator(summaryPercentileResourceName + "|Debug:Percentile Period (ms)", schedulePeriod);
 		}
 	}
 
 	/**
-	 * Initializes the parameterized metric names. Except for
-	 * percentile_elapsed, if the parameter value is null, the metric will not
-	 * be traced.
+	 * Initializes the parameterized metric names and creates a map of data accumulators.
 	 */
 	private void initPatterns() {
+		// ======
+		// Standard Metrics
+		// ======
+		metricNameMap.put(PERCENTILE_ELAPSED, summaryPercentileResourceName + getParameter(PERCENTILE_ELAPSED, "Average Elapsed Time (ms)"));
 
-		String tmp = getTracerParameterValue(PERCENTILE_ELAPSED, "Elapsed Time Ctile");
-		if (tmp != null) metricNameMap.put(PERCENTILE_ELAPSED, percentileResourceName + ":" + tmp);
-
-		tmp = getTracerParameterValue(COUNT_LTOE_PERCENTILE, null);
-		if (tmp != null) metricNameMap.put(COUNT_LTOE_PERCENTILE, percentileResourceName + ":" + tmp);
 		
-		tmp = getTracerParameterValue(COUNT_GT_PERCENTILE, null);
-		if (tmp != null) metricNameMap.put(COUNT_GT_PERCENTILE, percentileResourceName + ":" + tmp);
+		// ======
+		// Optional Metrics
+		// ======
+		metricMapIfNotNull(COUNT_LTOE_PERCENTILE, COUNT_LTOE_PERCENTILE, summaryPercentileResourceName);
+		metricMapIfNotNull(COUNT_GT_PERCENTILE, COUNT_GT_PERCENTILE, summaryPercentileResourceName);
+		metricMapIfNotNull(PERCENT_LTOE_PERCENTILE, PERCENT_LTOE_PERCENTILE, summaryPercentileResourceName);
+		metricMapIfNotNull(PERCENT_GT_PERCENTILE, PERCENT_GT_PERCENTILE, summaryPercentileResourceName);
+		metricMapIfNotNull(MEAN_ELAPSED, MEAN_ELAPSED, summaryPercentileResourceName);
+		metricMapIfNotNull(COUNT_ELAPSED, COUNT_ELAPSED, summaryPercentileResourceName);
+		metricMapIfNotNull(STDDEV_ELAPSED, STDDEV_ELAPSED, summaryPercentileResourceName);
 		
-		tmp = getTracerParameterValue(PERCENT_LTOE_PERCENTILE, null);
-		if (tmp != null) metricNameMap.put(PERCENT_LTOE_PERCENTILE, percentileResourceName + ":" + tmp);
-		
-		tmp = getTracerParameterValue(PERCENT_GT_PERCENTILE, null);
-		if (tmp != null) metricNameMap.put(PERCENT_GT_PERCENTILE, percentileResourceName + ":" + tmp);
-		
-
-		tmp = getTracerParameterValue(MEAN_ELAPSED, null);
-		if (tmp != null) metricNameMap.put(MEAN_ELAPSED, percentileResourceName + ":" + tmp);
-
-		tmp = getTracerParameterValue(COUNT_ELAPSED, null);
-		if (tmp != null) metricNameMap.put(COUNT_ELAPSED, percentileResourceName + ":" + tmp);
-
-		tmp = getTracerParameterValue(STDDEV_ELAPSED, null);
-		if (tmp != null) metricNameMap.put(STDDEV_ELAPSED, percentileResourceName + ":" + tmp);
-
-
+		// ======
+		// Performance Metrics
+		// ======
 		if (tracePerformance) {
-			metricNameMap.put(PERCENTILE_PERF, percentileResourceName
-					+ "|Debug:Percentile Processing Time (ms)");
+			metricMapIfNotNull(PERCENTILE_PERF, PERCENTILE_PERF, summaryPercentileResourceName);
 		}
-		if (debug) {
-			metricNameMap.put(DEBUG, percentileResourceName
-					+ "|Debug:Debug Output");
-		}
-
-		if (log.isDebugEnabled()) {
-			StringBuilder b = new StringBuilder(
-					"\nMethodTimerCtile Parameterized Metric Names for " + this.percentileResourceName + ":");
-			for (Entry<String, String> entry : metricNameMap.entrySet()) {
-				b.append("\n\t").append(entry.getKey()).append(":").append(
-						entry.getValue());
-			}
-			b.append("\n");
-			log.debug(b.toString());			
+		
+		// ======
+		// Debug Metrics    TBD
+		// ======
+//		if (DEBUG) {
+//			metricNameMap.put(DEBUG, percentileResourceName + "|Debug:Debug Output");
+//		}
+	}
+	
+	/**
+	 * Interrogates the parameter map for optional metric keys and adds them to the metric map if they are defined.
+	 * @param key The metric key
+	 * @param paramName The parameter key
+	 * @param resourcePrefix The resource prefix for the full metric name
+	 */
+	protected void metricMapIfNotNull(String key, String paramName, String resourcePrefix) {
+		String value = getParameter(key, null);
+		if(value!=null) {
+			metricNameMap.put(key, resourcePrefix + value);
 		}
 	}
 
@@ -239,53 +184,40 @@ public class MethodTimerCtile extends ASingleMetricTracerFactory implements
 		long start = System.currentTimeMillis();
 		int count = 0;
 		alternator.set(!alternator.get());
-		for (Entry<String, CtileMetricAccumulator> acc : accumulators
-				.entrySet()) {
+		for (Entry<String, CtileMetricAccumulator> acc : accumulators.entrySet()) {
 			try {
-				if (log.isDebugEnabled()) {
-					log.debug("Interval Calc Percentile Issuing for ["
-							+ acc.getKey() + "]");
-				}
-				acc.getValue().calcAndPublishInterval();
+				log.debug("Interval Calc Percentile Issuing for [" , acc.getKey() , "]");
+				acc.getValue().calcAndPublishInterval(metricNameMap);
 				count++;
 			} catch (Exception e) {
-				if (log.isErrorEnabled(module)) {
-					log.error("Interval Calc Percentile Failure for ["
-							+ acc.getKey() + "]", e);
-				}
+				log.error("Interval Calc Percentile Failure for [" , acc.getKey(), "]", e);				
 			}
 		}
-		long elapsed = System.currentTimeMillis() - start;
-		if (debug) {
-			getDataAccumulatorFactory().safeGetLongAverageDataAccumulator(
-					this.summaryPercentileResourceName
-							+ "|Debug:Total Percentile Calc Elapsed Time (ms)")
-					.ILongAggregatingDataAccumulator_recordDataPoint(elapsed);
-			getDataAccumulatorFactory()
-					.safeGetIntegerFluctuatingCounterDataAccumulator(
-							this.summaryPercentileResourceName
-									+ "|Debug:Total Percentile Calc Items Count")
-					.IIntegerCounterDataAccumulator_setValue(count);
-		}
+//		long elapsed = System.currentTimeMillis() - start;
+//		if (debug) {
+//			getDataAccumulatorFactory().safeGetLongAverageDataAccumulator(
+//					this.summaryPercentileResourceName
+//							+ "|Debug:Total Percentile Calc Elapsed Time (ms)")
+//					.ILongAggregatingDataAccumulator_recordDataPoint(elapsed);
+//			getDataAccumulatorFactory()
+//					.safeGetIntegerFluctuatingCounterDataAccumulator(
+//							this.summaryPercentileResourceName
+//									+ "|Debug:Total Percentile Calc Items Count")
+//					.IIntegerCounterDataAccumulator_setValue(count);
+//		}
 	}
 
 	/**
 	 * Acquires the current interval accumulator.
-	 * 
 	 * @param counterName
 	 * @return
 	 */
-	protected CtileMetricAccumulator getCtileMetricAccumulator(
-			String counterName) {
+	protected CtileMetricAccumulator getCtileMetricAccumulator(String counterName) {
 		CtileMetricAccumulator cma = accumulators.get(counterName);
 		if (cma == null) {
-			if(log.isDebugEnabled()) {
-				log.debug("Creating CtileMetricAccumulator for [" + counterName + "]" );
-			}
+			log.debug("Creating CtileMetricAccumulator for [", counterName, "]" );
 			try {
-				cma = new CtileMetricAccumulator(percentile, alternator,
-						tracePerformance, debug, accumulatorFactory, counterName,
-						metricNameMap, log);
+				cma = new CtileMetricAccumulator(percentile, alternator, tracePerformance, DEBUG, log);
 				accumulators.put(counterName, cma);
 			} catch (Throwable e) {
 				e.printStackTrace(System.err);
@@ -294,19 +226,50 @@ public class MethodTimerCtile extends ASingleMetricTracerFactory implements
 		}
 		return cma;
 	}
+	
+	/**
+	 * Creates a DataAccumulator for the given subName.
+	 * Constants map:<ul>
+	 * <li>PERCENTILE_ELAPSED : IIntegerFluctuatingCounterDataAccumulator</li>
+	 * <li>COUNT_LTOE_PERCENTILE : IIntegerFluctuatingCounterDataAccumulator</li>
+	 * <li>COUNT_GT_PERCENTILE : IIntegerFluctuatingCounterDataAccumulator</li>
+	 * <li>MEAN_ELAPSED : IIntegerFluctuatingCounterDataAccumulator</li>
+	 * <li>STDDEV_ELAPSED : IIntegerFluctuatingCounterDataAccumulator</li>
+	 * <li>COUNT_ELAPSED : IIntegerFluctuatingCounterDataAccumulator</li>
+	 * <li>DEBUG : IStringEveryEventDataAccumulator</li>
+	 * <li>PERCENTILE_PERF : ILongAverageDataAccumulator</li>
+	 * </ul>
+	 * @param subName The subName to create an accumulator for.
+	 * @return An IDataAccumulator
+	 */
+//	private IDataAccumulator createIDataAccumulator(String subName) {
+//		if (SUB_NAMES.contains(subName)) {
+//			return tracerFactory.safeGetIntegerFluctuatingCounterDataAccumulator(metricResource + "|" 	+ metricNameMap.get(subName));
+//		} else if(MethodTimerCtile.PERCENTILE_PERF.equals(subName)) {
+//			return tracerFactory.safeGetLongAverageDataAccumulator(metricResource + "|" + metricNameMap.get(subName));
+//		} else {
+//			throw new RuntimeException("SubName Not Indexed [" + subName + "]");
+//		}
+//	}
+	
 
 	/**
 	 * @param formattedMetricName
 	 * @return
 	 * @see com.wily.introscope.agent.trace.ASingleMetricTracerFactory#createDataAccumulator(java.lang.String)
 	 */
-	protected final IDataAccumulator createDataAccumulator(
-			String formattedMetricName) {
+	protected final IDataAccumulator createDataAccumulator(String formattedMetricName) {
 		return getDataAccumulatorFactory()
 				.safeGetIntegerAverageDataAccumulator(formattedMetricName);
 	}
 
-	protected String getCtileCalculationResourceName(String fmtResource, String pctResource) {
+	/**
+	 * Determines the ctile calculation resource name
+	 * @param fmtResource the base resource
+	 * @param pctResource the percent resource
+	 * @return the full resource
+	 */
+	protected String getCtileResourceName(String fmtResource, String pctResource) {
 		String ctileResource = fmtResource;
 		Pattern p = Pattern.compile("(\\{.*?})");
 		Matcher m = p.matcher(fmtResource);
@@ -315,7 +278,7 @@ public class MethodTimerCtile extends ASingleMetricTracerFactory implements
 		}
 		ctileResource = ctileResource.replaceAll("\\|{2,}", "|");
 		if(ctileResource.endsWith("|")) ctileResource = ctileResource.substring(0, ctileResource.length()-1);
-		return ctileResource + "|" + pctResource;
+		return new StringBuilder(ctileResource).append("|").append(pctResource).append(":").toString();
 
 	}
 
@@ -326,8 +289,7 @@ public class MethodTimerCtile extends ASingleMetricTracerFactory implements
 	 *      com.wily.introscope.agent.trace.InvocationData)
 	 */
 	public void ITracer_startTrace(int tracerIndex, InvocationData data) {
-		data.storeWallClockStartTime();
-		addToBlameStackIfEnabled(data);
+		data.storeWallClockStartTime();		
 	}
 
 	/**
@@ -339,35 +301,15 @@ public class MethodTimerCtile extends ASingleMetricTracerFactory implements
 	 *      com.wily.introscope.agent.trace.InvocationData)
 	 */
 	public void ITracer_finishTrace(int tracerIndex, InvocationData data) {
-		String metricName = null;
-		if(formatter!=null) {
-			metricName = formatter.INameFormatter_format(formattedResource, data);
-		} else {
-			metricName = this.formatParameterizedName(data);
-		}
-		com.wily.introscope.stat.blame.BlameStackSnapshot snapshot = removeFromBlameStackIfEnabledAndReturnSnapshot(data);
-		IIntegerAverageDataAccumulator average = (IIntegerAverageDataAccumulator) getDataAccumulator(metricName + ":Average Elapsed Time (ms)");
-		//this.getAgent().IAgent_getDataAccumulatorFactory().getIntegerAverageDataAccumulator("");
-		
 		int time = data.getWallClockElapsedTimeAsInt();
+		String metricName = nameFormatter.INameFormatter_format(formattedResource, data);
+		IIntegerAverageDataAccumulator average = (IIntegerAverageDataAccumulator) dataAccumulatorFactory.safeGetIntegerAverageDataAccumulator(metricName + ":Average Elapsed Time (ms)");
 		if (!average.IDataAccumulator_isShutOff()) {
-			average.IIntegerAggregatingDataAccumulator_recordDataPoint(time, 	snapshot);
+			average.IIntegerAggregatingDataAccumulator_recordDataPoint(time);
 		}		
 		getCtileMetricAccumulator(metricName).addElapsedTime(time);
 	}
 
-	/**
-	 * @param name
-	 * @param defaultValue
-	 * @return
-	 */
-	protected String getTracerParameterValue(String name, String defaultValue) {
-		String v = getParameter(name);
-		if (StringUtils.isEmpty(v))
-			return defaultValue;
-		else
-			return v.trim();
-	}
 
 }
 
