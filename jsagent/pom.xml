@@ -75,18 +75,23 @@
 
   <dependencies>
 
+	<!-- ActiveMQ -->
     <dependency>
       <groupId>org.apache.activemq</groupId>
       <artifactId>activemq-all</artifactId>
     </dependency>
+
+    <!--  Wily Introscope  -->
+
     <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-    </dependency>       
+      <groupId>com.wily.introscope</groupId>
+      <artifactId>java-agent</artifactId>
+    </dependency>     	
     <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-simple</artifactId>
-    </dependency>
+      <groupId>com.wily.introscope</groupId>
+      <artifactId>em</artifactId>
+    </dependency>     	
+    
 
   </dependencies>
 </project>

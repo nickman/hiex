@@ -12,7 +12,7 @@
   
   <modules>
     <module>hiex.agent</module>
-    <module>hiex.jsagent</module>
+    <module>jsagent</module>
   </modules>
 
   <properties>
@@ -20,7 +20,7 @@
     <junit-version>4.8.2</junit-version>
     <wily-version>9.0</wily-version>
     <trove-version>3.0.0</trove-version>
-    <activemq-version>4.1.2</activemq-version>
+    <activemq-version>5.5.1</activemq-version>
     <slf4j-version>1.5.11</slf4j-version>
   </properties>
 	<dependencyManagement>
@@ -50,6 +50,14 @@
 	      <version>${wily-version}</version>
 	      <scope>provided</scope>      
 	    </dependency>     	
+	    
+    <dependency>
+      <groupId>com.wily.introscope</groupId>
+      <artifactId>em</artifactId>
+	    <version>${wily-version}</version>
+	    <scope>provided</scope>            
+    </dependency>     	
+	    
 
 	    <!--  Active MQ  -->
 
